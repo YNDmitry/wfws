@@ -1,0 +1,22 @@
+{
+  "name": "vue",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "postcss": "^8.4.5",
+    "postcss-nested": "^5.0.6",
+    "sass": "^1.49.0",
+    "unplugin-auto-import": "^0.5.11",
+    "vite": "^2.7.2"
+  }
+}

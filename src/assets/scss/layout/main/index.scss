@@ -1,0 +1,30 @@
+@import url("./header.scss");
+
+.main {
+  min-height: 100vh;
+  display: flex;
+
+  &__header {
+    background-color: #202020;
+    width: 30%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    border-radius: 0 35px 0 0;
+    padding-top: 70px;
+  }
+
+  &__content {
+    max-width: 1300px;
+    width: 100%;
+    padding: 4.8% 100px;
+    margin-right: auto;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
