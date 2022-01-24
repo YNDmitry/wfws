@@ -1,35 +1,37 @@
 .blog {
   &__title {
+    font-size: 56px;
+    color: #ffa500;
+    line-height: 58px;
+    font-weight: bold;
     margin-bottom: 100px;
+    @media (max-width: 992px) {
+      font-size: 45px;
+      line-height: 47px;
+    }
+    @media (max-width: 767px) {
+      font-size: 35px;
+      line-height: 37px;
+    }
   }
 
   &__products {
     display: grid;
+<<<<<<< HEAD:src/assets/scss/pages/blog/index.scss
     grid-auto-columns: 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px 40px;
+=======
+    column-gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+>>>>>>> parent of f753d7b (initial np):src/assets/scss/layout/main/blog.scss
     margin-bottom: 50px;
   }
 
   &__button {
   }
-
-  &__line {
-    position: relative;
-
-    &::after {
-      content: "";
-      width: 1px;
-      height: 100%;
-      background-color: #444444;
-      position: absolute;
-      top: 0;
-      right: 50%;
-    }
-  }
 }
-
 .product {
   &__item {
     padding: 20px 30px 40px 20px;
@@ -58,11 +60,14 @@
   }
 
   &__btn {
+<<<<<<< HEAD:src/assets/scss/pages/blog/index.scss
     display: inline-flex;
     transition: all 200ms ease;
     
     & img {
       margin-left: 12px;
     }
+=======
+>>>>>>> parent of f753d7b (initial np):src/assets/scss/layout/main/blog.scss
   }
 }

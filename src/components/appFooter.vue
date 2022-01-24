@@ -1,5 +1,6 @@
 <template>
   <div class="footer">
+<<<<<<< HEAD
     <div class="footer__container">
       <div class="footer__body">
         <div class="footer__logo">
@@ -45,6 +46,9 @@
         </div>
       </div>
     </div>
+=======
+    <h1>Footer</h1>
+>>>>>>> parent of f753d7b (initial np)
   </div>
 </template>
 
