@@ -4,13 +4,16 @@
   border-radius: 8px;
   color: #000;
   display: inline-block;
-  padding: 14px 70px;
+  padding: 14px 50px 14px 70px;
   font-weight: 600;
   cursor: pointer;
+  font-family: "Montserrat";
   text-align: center;
   font-size: 14px;
   line-height: 17px;
   text-decoration: none;
+  border: none;
+  text-transform: uppercase;
   @media (any-hover: hover) {
     &:hover {
       text-decoration: underline;
@@ -23,8 +26,10 @@
   width: 100%;
   background: #1b1b1b;
   color: #fff;
+  font-family: "Montserrat";
   font-weight: 600;
   font-size: 22px;
+  text-transform: uppercase;
   line-height: 27px;
   padding: 20px 0;
   cursor: pointer;

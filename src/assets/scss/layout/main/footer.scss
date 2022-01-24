@@ -1,0 +1,86 @@
+.footer {
+  background-color: #262626;
+  &__container {
+    max-width: 1410px;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+
+  &__logo {
+  }
+
+  &__menu {
+    display: flex;
+  }
+}
+
+.menu-footer {
+  border-bottom: 1px solid #444444;
+  padding-bottom: 55px;
+  &__list {
+    padding: 0;
+    margin: 25px 0 0 0;
+    li:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__link {
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__column {
+    &:not(:last-child) {
+      margin-right: 125px;
+    }
+  }
+
+  &__title,
+  &__link {
+    font-size: 20px;
+    line-height: 24px;
+    color: #fff;
+    font-family: "Dancing Script";
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+}
+
+.information-block {
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+  }
+}
+
+.footer-info {
+  &__year {
+  }
+
+  &__rules {
+    display: flex;
+    gap: 20px;
+  }
+  &__conf,
+  &__rules {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: "Montserrat";
+    color: #ffffff;
+  }
+}

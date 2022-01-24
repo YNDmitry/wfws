@@ -4,8 +4,9 @@
 
 @import url("./layout/main/index.scss");
 @import url("./layout/main/mainForm.scss");
-@import url("./layout/main/blog.scss");
 @import url("./layout/study/index.scss");
+
+@import url("./pages/index.scss");
 
 body {
   background-color: $dark--body-bg;
