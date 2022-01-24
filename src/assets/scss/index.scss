@@ -4,20 +4,12 @@
 @import './utilities/mixins';
 @import './utilities/functions';
 
-<<<<<<< HEAD
 @import "./components/_buttons.scss";
 
 @import './layout/index.scss';
 
 @import './pages/index.scss';
 
-=======
-@import url("./layout/main/index.scss");
-@import url("./layout/main/mainForm.scss");
-@import url("./layout/main/blog.scss");
-@import url("./layout/study/index.scss");
-
->>>>>>> parent of f753d7b (initial np)
 body {
   @include fO;
   background-color: $dark--body-bg;

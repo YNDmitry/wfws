@@ -2,12 +2,14 @@
   &__form {
     background: #232323;
     padding: 50px 0;
+    border-top: 1px solid #444444;
   }
 }
+
 .form-sending {
   &__container {
     max-width: 850px;
-    width: 100%;
+    width: 95%;
     margin: 0 auto;
   }
 
@@ -17,17 +19,15 @@
     line-height: 59px;
     text-align: center;
     font-weight: 600;
+    font-family: "Montserrat";
     color: #ffffff;
     margin-bottom: 30px;
   }
 
-  &__inputs {
-    display: flex;
-    flex-direction: column;
+  &__window {
   }
 
   &__input {
-    width: 100%;
     background: #232323;
     padding: 4px 0 18px 19px;
     color: #fff;
@@ -43,22 +43,25 @@
       font-weight: 200;
     }
   }
+
+  &__message {
+    grid-column: span 2;
+    padding-top: 25px;
+  }
 }
+
 .sending-inputs {
   &__info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 60px;
     padding-bottom: 10px;
-  }
-
-  &__message {
   }
 
   &__btn {
     padding: 14px 42px;
     align-items: center;
     display: flex;
-    margin: 70px auto 0 auto;
+    margin: 45px auto 0 auto;
   }
 }

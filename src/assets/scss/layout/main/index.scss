@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 @import './header.scss';
 @import './footer.scss';
 @import './mainForm.scss';
-=======
 @import url("./header.scss");
->>>>>>> parent of f753d7b (initial np)
+@import url("./footer.scss");
 
 .main {
   min-height: 100vh;
@@ -23,17 +21,7 @@
   &__content {
     max-width: 1300px;
     width: 100%;
-    padding: 4.8% 100px;
+    padding: 70px 100px 170px 100px;
     margin-right: auto;
   }
 }
-<<<<<<< HEAD
-=======
-
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
-}
->>>>>>> parent of f753d7b (initial np)
