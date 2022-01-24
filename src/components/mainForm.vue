@@ -2,7 +2,7 @@
   <div class="sending__form form-sending">
     <div class="form-sending__container">
       <div class="form-sending__title">Остались вопросы?</div>
-      <form action="#" class="form-sending__window sending-inputs">
+      <form @submit.prevent action="#" class="form-sending__window sending-inputs">
         <div class="sending-inputs__info">
           <input
             autocomplete="off"

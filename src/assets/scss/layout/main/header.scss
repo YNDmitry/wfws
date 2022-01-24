@@ -23,7 +23,7 @@
       right: 0;
       width: 30px;
       height: 30px;
-      background: url('../../../images/menu-dec.svg') center no-repeat;
+      background: url('../images/menu-dec.svg') center no-repeat;
       opacity: 0;
     }
 
@@ -35,5 +35,16 @@
     &::before {
       top: -30px;
     }
+  }
+}
+
+.current {
+  background-color: $dark--body-bg;
+  color: $primary-color;
+  font-weight: 700;
+
+  &::after,
+  &::before {
+    opacity: 1;
   }
 }

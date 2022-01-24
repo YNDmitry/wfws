@@ -36,10 +36,10 @@
             </div>
           </div>
           <div class="information-block__footer footer-info">
-            <div class="footer-info__year">@2022 All rights resivered</div>
+            <div class="footer-info__link">@{{ new Date().getFullYear() }} All rights resivered</div>
             <div class="footer-info__rules">
-              <a href="" class="footer-info__conf">Конфеденциальность</a>
-              <a href="" class="footer-info__rules">Правила</a>
+              <a href="" class="footer-info__link">Конфеденциальность</a>
+              <a href="" class="footer-info__link">Правила</a>
             </div>
           </div>
         </div>

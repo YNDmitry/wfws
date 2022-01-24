@@ -1,27 +1,49 @@
-@import url("./base/_reset.scss");
+@import './base/_fonts.scss';
 
-@import url("./components/_buttons.scss");
+@import './utilities/_variables.scss';
+@import './utilities/mixins';
+@import './utilities/functions';
 
-@import url("./layout/main/index.scss");
-@import url("./layout/main/mainForm.scss");
-@import url("./layout/study/index.scss");
+@import "./components/_buttons.scss";
 
-@import url("./pages/index.scss");
+@import './layout/index.scss';
+
+@import './pages/index.scss';
 
 body {
+  @include fO;
   background-color: $dark--body-bg;
   color: $dark--color;
-  font-family: "Open-Sans", sans-serif;
   font-size: 16px;
 }
 
-.current {
-  background-color: $dark--body-bg;
-  color: $primary-color;
-  font-weight: 700;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: "Montserrat";
+}
 
-  &::after,
-  &::before {
-    opacity: 1;
+h1 {
+  font-size: 56px;
+  color: $primary-color;
+  line-height: 68px;
+  font-weight: bold;
+  @media (max-width: 992px) {
+    font-size: 45px;
+    line-height: 57px;
   }
+  @media (max-width: 767px) {
+    font-size: 35px;
+    line-height: 47px;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
 }

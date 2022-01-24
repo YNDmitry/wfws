@@ -4,76 +4,15 @@
   </div>
   <div class="blog__line">
     <div class="blog__products">
-      <article class="product__item item-product">
+      <article class="product__item item-product" v-for="key in 6" :key="key">
         <div class="item-product__title">
           Apple отчет за 4 квартал, перспективы роста...
         </div>
         <div class="item-product__date">14.01.2022</div>
-        <a href="" class="item-product__btn btn">
-          <img src="../../src/assets/images/arrow-right.svg" alt="" />ЧИТАТЬ</a
-        >
-      </article>
-      <article class="product__item item-product">
-        <div class="item-product__title">
-          Apple отчет за 4 квартал, перспективы роста...
-        </div>
-        <div class="item-product__date">14.01.2022</div>
-        <a href="" class="item-product__btn btn">
-          <img src="../../src/assets/images/arrow-right.svg" alt="" />ЧИТАТЬ</a
-        >
-      </article>
-      <article class="product__item item-product">
-        <div class="item-product__title">
-          Apple отчет за 4 квартал, перспективы роста...
-        </div>
-        <div class="item-product__date">14.01.2022</div>
-        <a href="" class="item-product__btn btn">
-          <img src="../../src/assets/images/arrow-right.svg" alt="" />ЧИТАТЬ</a
-        >
-      </article>
-      <article class="product__item item-product">
-        <div class="item-product__title">
-          Apple отчет за 4 квартал, перспективы роста...
-        </div>
-        <div class="item-product__date">14.01.2022</div>
-        <a href="" class="item-product__btn btn">
-          <img src="../../src/assets/images/arrow-right.svg" alt="" />ЧИТАТЬ</a
-        >
-      </article>
-      <article class="product__item item-product">
-        <div class="item-product__title">
-          Apple отчет за 4 квартал, перспективы роста...
-        </div>
-        <div class="item-product__date">14.01.2022</div>
-        <a href="" class="item-product__btn btn">
-          <img src="../../src/assets/images/arrow-right.svg" alt="" />ЧИТАТЬ</a
-        >
-      </article>
-      <article class="product__item item-product">
-        <div class="item-product__title">
-          Apple отчет за 4 квартал, перспективы роста...
-        </div>
-        <div class="item-product__date">14.01.2022</div>
-        <a href="" class="item-product__btn btn">
-          <img src="../../src/assets/images/arrow-right.svg" alt="" />ЧИТАТЬ</a
-        >
-      </article>
-      <article class="product__item item-product">
-        <div class="item-product__title">
-          Apple отчет за 4 квартал, перспективы роста...
-        </div>
-        <div class="item-product__date">14.01.2022</div>
-        <a href="" class="item-product__btn btn">
-          <img src="../../src/assets/images/arrow-right.svg" alt="" />ЧИТАТЬ</a
-        >
-      </article>
-      <article class="product__item item-product">
-        <div class="item-product__title">
-          Apple отчет за 4 квартал, перспективы роста...
-        </div>
-        <div class="item-product__date">14.01.2022</div>
-        <a href="" class="item-product__btn btn">
-          <img src="../../src/assets/images/arrow-right.svg" alt="" />ЧИТАТЬ</a
+        <a href="" class="btn item-product__btn">
+          ЧИТАТЬ
+          <img src="../../src/assets/images/arrow-right.svg" alt="" />
+        </a
         >
       </article>
     </div>

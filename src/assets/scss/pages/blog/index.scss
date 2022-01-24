@@ -8,7 +8,7 @@
     grid-auto-columns: 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 40px 40px;
+    gap: 20px 40px;
     margin-bottom: 50px;
   }
 
@@ -38,10 +38,10 @@
 }
 .item-product {
   &__title {
+    @include fM;
     font-weight: bold;
     font-size: 25px;
     line-height: 30px;
-    font-family: "Montserrat";
     margin: 0 0 5px 0;
     @media (max-width: 992px) {
       font-size: 20px;
@@ -59,7 +59,10 @@
 
   &__btn {
     display: inline-flex;
-    flex-direction: row-reverse;
-    gap: 12px;
+    transition: all 200ms ease;
+    
+    & img {
+      margin-left: 12px;
+    }
   }
 }

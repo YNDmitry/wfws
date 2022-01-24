@@ -34,9 +34,13 @@
     border: none;
     border-bottom: 1px solid #ffffff;
     transition: border-bottom 0.3s ease 0s;
+    font-size: 25px;
     &:focus {
       outline: none;
       border-bottom: 1px solid #ffa500;
+    }
+    &::placeholder {
+      font-weight: 200;
     }
   }
 

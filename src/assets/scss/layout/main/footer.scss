@@ -48,13 +48,14 @@
 
   &__title,
   &__link {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     color: #fff;
-    font-family: "Dancing Script";
   }
 
   &__title {
+    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
   }
 }
@@ -68,19 +69,16 @@
 }
 
 .footer-info {
-  &__year {
-  }
-
   &__rules {
     display: flex;
     gap: 20px;
   }
-  &__conf,
-  &__rules {
-    font-weight: 300;
+  
+  &__link {
+    @include fM;
+    font-weight: 200;
     font-size: 13px;
     line-height: 16px;
-    font-family: "Montserrat";
     color: #ffffff;
   }
 }
