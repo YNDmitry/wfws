@@ -13,7 +13,7 @@
           />
           <input
             autocomplete="off"
-            type="text"
+            type="email"
             name="form[]"
             placeholder="Email"
             class="form-sending__input"
@@ -21,7 +21,7 @@
 
           <textarea
             autocomplete="off"
-            type="textarea"
+            type="text"
             name="form[]"
             rows="5"
             placeholder="Message"
