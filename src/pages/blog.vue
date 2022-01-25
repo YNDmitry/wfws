@@ -4,16 +4,15 @@
   </div>
   <div class="blog__line">
     <div class="blog__products">
-      <article class="product__item item-product" v-for="key in 6" :key="key">
+      <article class="product__item item-product" v-for="item in items" :key="item">
         <div class="item-product__title">
-          Apple отчет за 4 квартал, перспективы роста...
+          {{ item.title }}
         </div>
-        <div class="item-product__date">14.01.2022</div>
-        <a href="" class="btn item-product__btn">
+        <div class="item-product__date">{{ item.createdAt }}</div>
+        <router-link :to="{ name: 'BlogTemplate', params: { id: item.id } }" class="btn item-product__btn">
           ЧИТАТЬ
           <img src="../../src/assets/images/arrow-right.svg" alt="" />
-        </a
-        >
+        </router-link>
       </article>
     </div>
   </div>
@@ -21,7 +20,35 @@
 </template>
 
 <script>
-export default {};
+import { gql } from 'graphql-request'
+
+export default {
+  name: 'Blog',
+
+  data() {
+    return {
+      items: [],
+      errors: []
+    }
+  },
+
+  async created() {
+    const data = await this.$graphcms.request(
+      gql`
+        {
+          blogs {
+            id,
+            title,
+            createdAt
+          }
+        }
+      `
+    )
+
+    this.items = data.blogs
+    this.errors = data.errors
+  }
+};
 </script>
 
 <style></style>
