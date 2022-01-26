@@ -53,6 +53,11 @@ const router = createRouter({
   history: createWebHistory(),
   linkActiveClass: 'current',
   linkExactActiveClass: 'current',
+	scrollBehavior() {
+		return {
+			top: 0
+		}
+	},
   routes
 })
 
