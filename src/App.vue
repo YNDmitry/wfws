@@ -9,7 +9,6 @@
 import mainLayout from "./layouts/mainLayout.vue";
 import studyLayout from "./layouts/studyLayout.vue";
 import appFooter from "./components/appFooter.vue";
-
 export default {
   components: {
     mainLayout,

@@ -1,8 +1,8 @@
 <template>
   <div class="main">
-    <div class="main__header">
+    <aside class="main__header">
       <main-header></main-header>
-    </div>
+    </aside>
 
     <div class="main__content">
       <router-view></router-view>

@@ -3,8 +3,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import home from '../pages/home.vue'
 import reports from '../pages/reports.vue'
 import study from '../pages/study.vue'
+import studyMain from '../pages/studyMain.vue'
 import blog from '../pages/blog.vue'
 import blogTemplate from '../templates/blogTemplate.vue'
+import lastReports from '../pages/lastReports.vue'
 
 const routes = [
   {
@@ -23,12 +25,20 @@ const routes = [
       layout: 'mainLayout'
     }
   },
+	{
+		name: 'LastReports',
+		path: '/reports/last-reports',
+		component: lastReports,
+		meta: {
+			layout: 'mainLayout'
+		}
+	},
   {
     name: 'Study',
     path: '/study',
     component: study,
     meta: {
-      layout: 'studyLayout'
+    	layout: 'mainLayout'
     }
   },
   {
@@ -46,7 +56,15 @@ const routes = [
     meta: {
       layout: 'mainLayout'
     }
-  }
+  },
+	{
+		name: 'StudyMain',
+		path: '/study/main',
+		component: studyMain,
+		meta: {
+			layout: 'studyLayout'
+		}
+	}
 ]
 
 const router = createRouter({
