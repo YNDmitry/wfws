@@ -1,2 +1,64 @@
-@import './blog/index.scss';
-@import './home/index.scss';
+@import "./blog/index.scss";
+@import "./home/index.scss";
+@import "./blogTemplate/index.scss";
+@import "./study/index.scss";
+@import "./reports/index.scss";
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: "Montserrat";
+}
+
+h1 {
+  font-size: 56px;
+  color: $primary-color;
+  line-height: 68px;
+  font-weight: bold;
+  @media (max-width: 992px) {
+    font-size: 45px;
+    line-height: 57px;
+  }
+  @media (max-width: 767px) {
+    font-size: 35px;
+    line-height: 47px;
+  }
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #fff;
+  margin: 0;
+}

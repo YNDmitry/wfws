@@ -1,49 +1,18 @@
-@import './base/_fonts.scss';
+@import "./base/_fonts.scss";
 
-@import './utilities/_variables.scss';
-@import './utilities/mixins';
-@import './utilities/functions';
+@import "./utilities/_variables.scss";
+@import "./utilities/mixins";
+@import "./utilities/functions";
 
 @import "./components/_buttons.scss";
 
-@import './layout/index.scss';
+@import "./layout/index.scss";
 
-@import './pages/index.scss';
+@import "./pages/index.scss";
 
 body {
   @include fO;
   background-color: $dark--body-bg;
   color: $dark--color;
   font-size: 16px;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
-  font-family: "Montserrat";
-}
-
-h1 {
-  font-size: 56px;
-  color: $primary-color;
-  line-height: 68px;
-  font-weight: bold;
-  @media (max-width: 992px) {
-    font-size: 45px;
-    line-height: 57px;
-  }
-  @media (max-width: 767px) {
-    font-size: 35px;
-    line-height: 47px;
-  }
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
 }

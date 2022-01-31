@@ -20,7 +20,7 @@
       content: "";
       width: 1px;
       height: 100%;
-      background-color: #444444;
+      background-color: $border-color;
       position: absolute;
       top: 0;
       right: 50%;
@@ -31,7 +31,7 @@
 .product {
   &__item {
     padding: 20px 30px 40px 20px;
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid $border-color;
   }
 }
 .item-product {
@@ -58,7 +58,7 @@
   &__btn {
     display: inline-flex;
     transition: all 200ms ease;
-    
+
     & img {
       margin-left: 12px;
     }
