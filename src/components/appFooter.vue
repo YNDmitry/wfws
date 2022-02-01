@@ -34,8 +34,12 @@
               @{{ new Date().getFullYear() }} All rights resivered
             </div>
             <div class="footer-info__rules">
-              <a @click="privacyIsOpen = true" class="footer-info__link">Конфеденциальность</a>
-              <a @click="rulesIsOpen = true" class="footer-info__link">Правила</a>
+              <a @click="privacyIsOpen = true" class="footer-info__link"
+                >Конфеденциальность</a
+              >
+              <a @click="rulesIsOpen = true" class="footer-info__link"
+                >Правила</a
+              >
             </div>
           </div>
         </div>
@@ -48,7 +52,7 @@
       <p>Конфеденциальность</p>
     </footer-modal>
   </transition>
-  
+
   <transition name="fade">
     <footer-modal :open="rulesIsOpen" @close="rulesIsOpen = false">
       <p>Правила</p>
@@ -66,7 +70,7 @@ export default {
   data() {
     return {
       privacyIsOpen: false,
-      rulesIsOpen: false
+      rulesIsOpen: false,
     };
   },
 };

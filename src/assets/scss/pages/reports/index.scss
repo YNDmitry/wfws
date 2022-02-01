@@ -36,8 +36,6 @@
     margin-bottom: 25px;
     line-height: 27px;
   }
-  &__btn {
-  }
 }
 //========================= Last Reports.vue ===========================
 .recent-reports {
@@ -74,7 +72,7 @@
 .reports-catalog {
   &__block {
     padding: 0px 0px 45px 0px;
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid $border-color;
     h4 {
       margin-bottom: 15px;
     }
@@ -104,6 +102,8 @@
     }
     color: white;
   }
+
+
   &__button {
   }
 
@@ -123,6 +123,7 @@
     font-size: 10px;
     color: #c4c4c4;
   }
+
 }
 
 .filter-reports {
@@ -130,31 +131,6 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-  }
-
-  &__country {
-  }
-
-  &__category {
-  }
-}
-
-.country-filter {
-  &__header {
-    a {
-      color: white;
-      font-weight: 300;
-      font-size: 10px;
-      line-height: 12px;
-      text-decoration-line: underline;
-    }
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  &__body {
   }
 }
 
@@ -167,7 +143,7 @@
 
   &__label {
     padding-left: 25px;
-    color: #c4c4c4;
+    color: $gray--filter;
     cursor: pointer;
     display: flex;
 
@@ -180,7 +156,7 @@
       display: block;
       width: 15px;
       height: 15px;
-      border: 1px solid #ffa500;
+      border: 1px solid $primary-color;
       border-radius: 50%;
       position: absolute;
       top: 0;
@@ -193,7 +169,7 @@
       display: block;
       width: 15px;
       height: 15px;
-      background-color: #ffa500;
+      background-color: $primary-color;
       border-radius: 50%;
       opacity: 0;
       position: absolute;
@@ -206,7 +182,7 @@
 }
 
 .radio__input:checked + .radio__label:before {
-  border-color: #ffa500;
+  border-color: $primary-color;
 }
 
 .radio__input:checked + .radio__label:after {
@@ -215,7 +191,7 @@
 
 .category-filter__checkbox,
 .country-filter__input {
-  color: #c4c4c4;
+  color: $gray--filter;
   font-size: 14px;
   line-height: 17px;
   position: relative;
@@ -224,19 +200,23 @@
   }
 }
 
+.country-filter,
 .category-filter {
   &__header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     a {
       color: white;
       font-weight: 300;
       font-size: 10px;
       line-height: 12px;
       text-decoration-line: underline;
+      margin-left: 20px;
+      opacity: 0.6;
+      cursor: pointer;
     }
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 }
 
@@ -249,7 +229,7 @@
 
   &__label {
     padding-left: 25px;
-    color: #c4c4c4;
+    color: $gray--filter;
     cursor: pointer;
     display: flex;
 
@@ -262,7 +242,7 @@
       display: block;
       width: 15px;
       height: 15px;
-      border: 1px solid #ffa500;
+      border: 1px solid $primary-color;
       position: absolute;
       top: 0;
       left: 0;
@@ -284,7 +264,7 @@
 }
 
 .checkbox__input:checked + .checkbox__label:before {
-  background-color: #ffa500;
+  background-color: $primary-color;
 }
 
 .checkbox__input:checked + .checkbox__label:after {
