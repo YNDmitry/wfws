@@ -43,9 +43,6 @@
 
     padding: 70px 35px;
   }
-
-  &__breadcrumbs {
-  }
 }
 
 .tabs {
@@ -69,7 +66,7 @@
     color: white;
     &:active,
     &:focus {
-      background: #ffa500;
+      background: $primary-color;
       box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.14);
       border-radius: 13px;
     }
@@ -84,15 +81,9 @@
   &__subtitle {
     margin-bottom: 85px;
   }
-
-  &__body {
-  }
 }
 
 .body-tabs {
-  &__mask {
-  }
-
   &__contant {
     max-width: 521px;
     width: 95%;
