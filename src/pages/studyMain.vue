@@ -2,18 +2,13 @@
   <div class="catalog__breadcrumbs breadcrumbs">
     <ul class="breadcrumbs__list">
       <li class="breadcrumbs__item">
-        <a href="" class="breadcrumbs__link">
+        <router-link to="/" class="breadcrumbs__link">
           <img src="../../src/assets/images/iconHome.svg" alt="" />
-        </a>
+        </router-link>
         <img src="../../src/assets/images/breadcam.svg" alt="" />
       </li>
       <li class="breadcrumbs__item">
-        <a href="" class="breadcrumbs__link">Проекты </a>
-
-        <img src="../../src/assets/images/breadcam.svg" alt="" />
-      </li>
-      <li class="breadcrumbs__item">
-        <a href="" class="breadcrumbs__link">Обучение</a>
+        <router-link to="/study/main" class="breadcrumbs__link">Обучение</router-link>
       </li>
     </ul>
   </div>

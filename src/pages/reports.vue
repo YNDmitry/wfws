@@ -10,15 +10,15 @@
         </div>
         <div class="analysis-report__contant report-contant">
           <h4>
-            Отчетность Российских<br />
-            компаний
+            Отчетность компаний<br />
+            США
           </h4>
           <p>
             Мы анализируем все выходящие квартальные отчетности основных
             российских компаний, чтобы вы смогли лучше понимать финансовые
             перспективы и текущее состояние дел
           </p>
-          <router-link to="/reports/last-reports" class="report-contant__btn btn">Последние отчёты</router-link>
+          <router-link :to="{path: '/reports/last-reports', query: {country: 'usa'}}" class="report-contant__btn btn">Последние отчёты</router-link>
         </div>
       </div>
       <div class="analysis-report__block">
@@ -35,7 +35,7 @@
             российских компаний, чтобы вы смогли лучше понимать финансовые
             перспективы и текущее состояние дел
           </p>
-          <router-link to="/reports/last-reports" class="report-contant__btn btn">Последние отчёты</router-link>
+          <router-link :to="{path: '/reports/last-reports', query: {country: 'ru'}}" class="report-contant__btn btn">Последние отчёты</router-link>
         </div>
       </div>
     </div>
@@ -43,7 +43,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  
+};
 </script>
 
 <style></style>
