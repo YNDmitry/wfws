@@ -14,7 +14,8 @@ const routes = [
     path: '/',
     component: home,
     meta: {
-      layout: 'mainLayout'
+      layout: 'mainLayout',
+			title: 'Главная'
     }
   },
   {
@@ -22,7 +23,8 @@ const routes = [
     path: '/reports',
     component: reports,
     meta: {
-      layout: 'mainLayout'
+      layout: 'mainLayout',
+			title: 'Отчёты компаний'
     }
   },
 	{
@@ -30,7 +32,8 @@ const routes = [
 		path: '/reports/last-reports',
 		component: lastReports,
 		meta: {
-			layout: 'mainLayout'
+			layout: 'mainLayout',
+			title: 'Отчёты компаний'
 		}
 	},
   {
@@ -38,7 +41,8 @@ const routes = [
     path: '/study',
     component: study,
     meta: {
-    	layout: 'mainLayout'
+    	layout: 'mainLayout',
+			title: 'Обучение'
     }
   },
   {
@@ -46,7 +50,8 @@ const routes = [
     path: '/blog',
     component: blog,
     meta: {
-      layout: 'mainLayout'
+      layout: 'mainLayout',
+			title: 'Блог'
     }
   },
 	{
@@ -54,7 +59,8 @@ const routes = [
     path: '/blog/:id',
     component: blogTemplate,
     meta: {
-      layout: 'mainLayout'
+    	layout: 'mainLayout',
+			title: ''
     }
   },
 	{
@@ -62,7 +68,8 @@ const routes = [
 		path: '/study/main',
 		component: studyMain,
 		meta: {
-			layout: 'studyLayout'
+			layout: 'studyLayout',
+			title: 'Обучение'
 		}
 	}
 ]
