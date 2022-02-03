@@ -8,7 +8,9 @@
         <img src="../../src/assets/images/breadcam.svg" alt="" />
       </li>
       <li class="breadcrumbs__item">
-        <router-link to="/study/main" class="breadcrumbs__link">Обучение</router-link>
+        <router-link to="/study/main" class="breadcrumbs__link"
+          >Обучение</router-link
+        >
       </li>
     </ul>
   </div>
@@ -16,11 +18,26 @@
     <div class="catalog__body">
       <div class="catalog__tabs tabs-catalog">
         <nav class="tabs__items items-tabs">
-          <a href="#" class="items-tabs__item">Lorem ipsum 1</a>
-          <a href="#" class="items-tabs__item">Lorem ipsum 2</a>
-          <a href="#" class="items-tabs__item">Lorem ipsum 3</a>
-          <a href="#" class="items-tabs__item">Lorem ipsum 4</a>
-          <a href="#" class="items-tabs__item">Lorem ipsum 5</a>
+          <a href="#" class="items-tabs__item"
+            >Lorem ipsum 1
+            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
+          /></a>
+          <a href="#" class="items-tabs__item"
+            >Lorem ipsum 2
+            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
+          /></a>
+          <a href="#" class="items-tabs__item"
+            >Lorem ipsum 3
+            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
+          /></a>
+          <a href="#" class="items-tabs__item"
+            >Lorem ipsum 4
+            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
+          /></a>
+          <a href="#" class="items-tabs__item"
+            >Lorem ipsum 5
+            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
+          /></a>
         </nav>
       </div>
       <div class="catalog-tabs__content">
@@ -146,5 +163,5 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>

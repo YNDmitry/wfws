@@ -10,24 +10,24 @@ import lastReports from "../pages/lastReports.vue";
 import news from "../pages/news.vue";
 
 const routes = [
-  {
-    name: 'Home',
-    path: '/',
-    component: home,
-    meta: {
-      layout: 'mainLayout',
-			title: 'Главная'
-    }
-  },
-  {
-    name: 'Reports',
-    path: '/reports',
-    component: reports,
-    meta: {
-      layout: 'mainLayout',
-			title: 'Отчёты компаний'
-    }
-  },
+	{
+		name: "Home",
+		path: "/",
+		component: home,
+		meta: {
+			layout: "mainLayout",
+			title: "Главная",
+		},
+	},
+	{
+		name: "Reports",
+		path: "/reports",
+		component: reports,
+		meta: {
+			layout: "mainLayout",
+			title: "Отчёты компаний",
+		},
+	},
 	{
 		name: "LastReports",
 		path: "/reports/last-reports",
@@ -52,33 +52,43 @@ const routes = [
 			layout: "mainLayout",
 		},
 	},
-  {
-    name: 'Study',
-    path: '/study',
-    component: study,
-    meta: {
-    	layout: 'mainLayout',
-			title: 'Обучение'
-    }
-  },
-  {
-    name: 'Blog',
-    path: '/blog',
-    component: blog,
-    meta: {
-      layout: 'mainLayout',
-			title: 'Блог'
-    }
-  },
 	{
-    name: 'BlogTemplate',
-    path: '/blog/:id',
-    component: blogTemplate,
-    meta: {
-    	layout: 'mainLayout',
-			title: ''
-    }
-  },
+		name: "Study",
+		path: "/study",
+		component: study,
+		meta: {
+			layout: "mainLayout",
+			title: "Обучение",
+		},
+	},
+
+	{
+		name: "StudyMain",
+		path: "/study/:id",
+		component: studyMain,
+		meta: {
+			layout: "studyLayout",
+			title: "",
+		},
+	},
+	{
+		name: "Blog",
+		path: "/blog",
+		component: blog,
+		meta: {
+			layout: "mainLayout",
+			title: "Блог",
+		},
+	},
+	{
+		name: "BlogTemplate",
+		path: "/blog/:id",
+		component: blogTemplate,
+		meta: {
+			layout: "mainLayout",
+			title: "",
+		},
+	},
 	{
 		name: "news",
 		path: "/news",

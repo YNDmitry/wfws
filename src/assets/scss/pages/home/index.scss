@@ -3,21 +3,14 @@
     padding-bottom: 140px;
   }
 }
-
 .page-main {
-  &__logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   &__info {
     margin-top: 40px;
     text-align: center;
     h1 {
       span {
         font-weight: 900;
-        color: orange;
+        color: $primary-color;
       }
       font-weight: 300;
       font-size: 40px;
@@ -38,15 +31,15 @@
     }
   }
 }
-
 .info-main {
+  &__logo {
+    display: inline-block;
+    margin-bottom: 45px;
+  }
   &__navigation {
     display: flex;
     align-items: center;
     gap: 65px;
-  }
-
-  &__globe {
   }
 
   &__info {
@@ -67,6 +60,7 @@
     }
   }
 }
+
 //===============================SLIDER===============================
 .page-block {
   padding-bottom: 130px;
@@ -127,7 +121,7 @@
 }
 
 .swiper-slide-active {
-  border: 3px solid #ffa500;
+  border: 3px solid $primary-color;
 }
 
 .slider-arrow {
