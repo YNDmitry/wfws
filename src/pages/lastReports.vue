@@ -7,16 +7,12 @@
           <div class="filter-reports__country country-filter">
             <div class="country-filter__header">
               <h4>Страна</h4>
-
-              <a>Очистить</a>
-
               <a @click="clearCountryFilter">Очистить</a>
-
             </div>
             <div class="country-filter__body">
-              <div 
-                class="country-filter__input" 
-                v-for="country in countries" 
+              <div
+                class="country-filter__input"
+                v-for="country in countries"
                 :key="country"
               >
                 <input
@@ -27,7 +23,9 @@
                   :value="country.countryName"
                   v-model="countryFilter"
                 />
-                <label class="radio__label" :for="country.countryName">{{ country.countryName }}</label>
+                <label class="radio__label" :for="country.countryName">{{
+                  country.countryName
+                }}</label>
               </div>
             </div>
           </div>
@@ -36,51 +34,53 @@
               <h4>Категория</h4>
               <a @click="clearCategoryFilter">Очистить</a>
             </div>
-            <div 
+            <div
               class="category-filter__checkbox checkbox"
               v-for="category in categories"
               :key="category"
             >
-              <input 
-                class="checkbox__input" 
-                type="checkbox" 
+              <input
+                class="checkbox__input"
+                type="checkbox"
                 :id="category.categoryName"
                 :value="category.categoryName"
                 v-model="categoryFilter"
               />
-              <label 
-                class="checkbox__label" 
-                :for="category.categoryName"
-              >{{ category.categoryName }}</label>
+              <label class="checkbox__label" :for="category.categoryName">{{
+                category.categoryName
+              }}</label>
             </div>
           </div>
         </div>
       </div>
       <div class="body-reports__catalog reports-catalog">
-
         <template v-if="filteredReports.length > 0">
-          <div 
+          <div
             class="reports-catalog__block"
             v-for="report in filteredReports"
             :key="report"
           >
             <h4>{{ report.title }}</h4>
             <div class="reports-catalog__categories">
-              <div 
+              <div
                 class="reports-catalog__category"
-                v-for="category in report.category" :key="category"
-              >{{ category.categoryName }}</div>
+                v-for="category in report.category"
+                :key="category"
+              >
+                {{ category.categoryName }}
+              </div>
             </div>
             <span>14.01.2022</span>
             <p>
               {{ report.description }}
             </p>
-            <div class="reports-catalog__btn btn">Посмотреть</div>
+            <div class="reports-catalog__btn btn" @click="windowIsOpen = true">
+              Посмотреть
+            </div>
           </div>
-          <div class="reports-catalog__button button" @click="windowIsOpen = true">показать больше</div>
+          <div class="reports-catalog__button button">показать больше</div>
         </template>
         <h2 v-else>Отчёты по такой категории не найдены.</h2>
-
       </div>
     </div>
   </div>
@@ -131,12 +131,12 @@
 
 <script>
 import windowModal from "../components/popupWindow.vue";
-import { gql } from 'graphql-request'
+import { gql } from "graphql-request";
 export default {
   components: {
     windowModal,
   },
-  
+
   data() {
     return {
       reports: [],
@@ -144,59 +144,59 @@ export default {
       categories: [],
 
       categoryFilter: [],
-      countryFilter: '',
-      
+      countryFilter: "",
+
       windowIsOpen: false,
-    }
+    };
   },
 
   created() {
-    this.fetchData()
-    this.checkQuery()
+    this.fetchData();
+    this.checkQuery();
   },
 
-  watch: { 
+  watch: {
     countryFilter(val) {
-      if (val === 'США') {
-        this.$route.query.country = 'usa'
+      if (val === "США") {
+        this.$route.query.country = "usa";
       } else {
-        this.$route.query.country = 'ru'
+        this.$route.query.country = "ru";
       }
-    }
+    },
   },
 
   computed: {
     filteredReports() {
-      let tempReports = this.reports
+      let tempReports = this.reports;
 
       if (this.countryFilter) {
         tempReports = tempReports.filter((item) => {
-          return item.country.countryName == this.countryFilter
-        })
+          return item.country.countryName == this.countryFilter;
+        });
       }
 
       if (this.categoryFilter.length > 0) {
-        tempReports = tempReports.filter(item => {
+        tempReports = tempReports.filter((item) => {
           for (let value of item.category) {
             if (this.categoryFilter.includes(value.categoryName)) {
-              return true
+              return true;
             }
           }
-        })
+        });
       }
 
-      return tempReports
-    }
+      return tempReports;
+    },
   },
 
   methods: {
     checkQuery() {
-      if (this.$route.query.country === 'usa') {
-        this.countryFilter = 'США'
-      } else if (this.$route.query.country === 'ru') {
-        this.countryFilter = 'РФ'
+      if (this.$route.query.country === "usa") {
+        this.countryFilter = "США";
+      } else if (this.$route.query.country === "ru") {
+        this.countryFilter = "РФ";
       } else {
-        this.countryFilter = ''
+        this.countryFilter = "";
       }
     },
 
@@ -226,23 +226,23 @@ export default {
               }
             }
           `
-        )
-        this.reports = data.reports
-        this.countries = data.countries
-        this.categories = data.categoryFilterS
+        );
+        this.reports = data.reports;
+        this.countries = data.countries;
+        this.categories = data.categoryFilterS;
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     },
 
     clearCountryFilter() {
-      return this.countryFilter = ''
+      return (this.countryFilter = "");
     },
 
     clearCategoryFilter() {
-      return this.categoryFilter = []
-    }
-  }
+      return (this.categoryFilter = []);
+    },
+  },
 };
 </script>
 
