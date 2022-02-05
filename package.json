@@ -14,7 +14,6 @@
     "swiper": "^8.0.3",
     "three-globe": "^2.21.4",
     "troisjs": "^0.3.3",
-    "vite-plugin-treat-umd-as-commonjs": "^0.1.2",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"
   },
