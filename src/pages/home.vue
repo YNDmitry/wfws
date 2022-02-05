@@ -164,9 +164,8 @@ export default {
     const scene = this.$refs.scene
     const camera = this.$refs.camera
     const Globe = new ThreeGlobe()
-      // .globeImageUrl('https://media.graphcms.com/lXi1VFYqT3CrEegRbbIm')
-      .globeImageUrl('https://media.graphcms.com/20FqRXmFQZ1eEJNjGrOA')
-      .bumpImageUrl('https://media.graphcms.com/20FqRXmFQZ1eEJNjGrOA')
+      .globeImageUrl('https://media.graphcms.com/lXi1VFYqT3CrEegRbbIm')
+      // .bumpImageUrl('https://media.graphcms.com/aCBFW2MRTYSh90ml5o0t')
       .showAtmosphere(false)
       .rendererSize(scene)
 
