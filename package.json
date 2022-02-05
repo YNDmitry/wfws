@@ -18,8 +18,8 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@originjs/vite-plugin-commonjs": "^1.0.2",
     "@originjs/vite-plugin-global-style": "^1.0.2",
-    "@rollup/plugin-commonjs": "^21.0.1",
     "@vitejs/plugin-vue": "^2.0.0",
     "postcss": "^8.4.5",
     "postcss-nested": "^5.0.6",
