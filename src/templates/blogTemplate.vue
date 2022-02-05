@@ -1,7 +1,7 @@
 <template>
   <router-link to="/blog" class="blog-template__title">
     <img src="../assets/images/arrow-left.svg" alt="" />
-    <h1>Вернуться к инвестидеям</h1>
+    <h1>Вернуться назад</h1>
   </router-link>
   <div v-if="blog">
     <div class="blog-template__subtitle">

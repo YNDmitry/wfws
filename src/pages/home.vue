@@ -11,9 +11,6 @@
         черпайте свежие идеи для своих инвестиций!
       </p>
       <div class="info-main__navigation">
-        <div class="info-main__globe">
-          <img src="../../src/assets/images/home/globe.svg" alt="" />
-        </div>
         <div class="info-main__info">
           <h4>Отчеты компаний</h4>
           <p>
@@ -26,76 +23,58 @@
             секторов. Это помогает вам лучше понять куда инвестировать
           </p>
         </div>
+        <div class="info-main__globe" id="globeViz"></div>
       </div>
     </div>
     <div class="main__page-block page-block">
       <div class="page-block__title">
         <h1>ПОСЛЕДНИЕ ОБЗОРЫ И СТАТЬИ</h1>
       </div>
-      <div class="page-block__slider slider-page">
-        <div class="slider-page__swiper">
-          <div class="slider-page__slide slide-slider-page">
-            <h4>Apple отчет за 4 квартал, перспективы роста...</h4>
-            <span>14.01.2022</span>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et
-              elementum risus scelerisque nec interdum sit risus. Pharetra
-              turpis interdum ut at lacinia. Tincidunt ullamcorper pulvinar
-              tellus tellus at. Sed venenatis, lectus nunc consectetur
-              pellentesque venenatis.
-            </p>
-            <a href="" class="slide-slider-page__button btn"
-              >читать
-              <img src="../../src/assets/images/arrow-right.svg" alt="" />
-            </a>
+        <swiper
+          :spaceBetween="20"
+          :centeredSlides="true"
+          :slidesPerView="2"
+          :slideToClickedSlide="true"
+          :loop="true"
+          :initialSlide="3"
+          :autoPlay="true"
+          @swiper="onSwiper"
+          class="slider-page__slider"
+        >
+          <swiper-slide 
+            class="slider-page__slide slide-slider-page"
+            v-for="slide in items"
+            :key="slide"
+          >
+              <div>
+                <h4>{{ slide.title }}</h4>
+                <span>{{ slide.createdAt }}</span>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et
+                  elementum risus scelerisque
+                </p>
+                <router-link :to="{ name: 'BlogTemplate', params: { id: slide.id } }" class="slide-slider-page__button btn"
+                  >читать
+                  <img src="../../src/assets/images/arrow-right.svg" alt="" />
+                </router-link>
+              </div>
+          </swiper-slide>
+        </swiper>
+          <div class="slider-page__arrows slider-arrows">
+            <button class="slider-arrow slider-arrow_prev" @click="slidePrev">
+              <img
+                src="../../src/assets/images/home/sliderArrowPrev.svg"
+                alt=""
+              />
+            </button>
+            <button class="slider-arrow slider-arrow_next" @click="slideNext">
+              <img
+                src="../../src/assets/images/home/sliderArrowNext.svg"
+                alt=""
+              />
+            </button>
           </div>
-          <div class="slider-page__slide slide-slider-page swiper-slide-active">
-            <h4>Apple отчет за 4 квартал, перспективы роста...</h4>
-            <span>14.01.2022</span>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et
-              elementum risus scelerisque nec interdum sit risus. Pharetra
-              turpis interdum ut at lacinia. Tincidunt ullamcorper pulvinar
-              tellus tellus at. Sed venenatis, lectus nunc consectetur
-              pellentesque venenatis.
-            </p>
-            <a href="" class="slide-slider-page__button btn"
-              >читать
-              <img src="../../src/assets/images/arrow-right.svg" alt="" />
-            </a>
-          </div>
-          <div class="slider-page__slide slide-slider-page">
-            <h4>Apple отчет за 4 квартал, перспективы роста...</h4>
-            <span>14.01.2022</span>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et
-              elementum risus scelerisque nec interdum sit risus. Pharetra
-              turpis interdum ut at lacinia. Tincidunt ullamcorper pulvinar
-              tellus tellus at. Sed venenatis, lectus nunc consectetur
-              pellentesque venenatis.
-            </p>
-            <a href="" class="slide-slider-page__button btn"
-              >читать
-              <img src="../../src/assets/images/arrow-right.svg" alt="" />
-            </a>
-          </div>
-        </div>
-        <div class="slider-page__arrows slider-arrows">
-          <button class="slider-arrow slider-arrow_prev">
-            <img
-              src="../../src/assets/images/home/sliderArrowPrev.svg"
-              alt=""
-            />
-          </button>
-          <button class="slider-arrow slider-arrow_next">
-            <img
-              src="../../src/assets/images/home/sliderArrowNext.svg"
-              alt=""
-            />
-          </button>
-        </div>
       </div>
-    </div>
     <div class="main__can-contant contant-can">
       <div class="contant-can__title">
         <h1>С НАМИ ВЫ МОЖЕТЕ</h1>
@@ -124,3 +103,91 @@
     </div>
   </div>
 </template>
+
+<script>
+import { reportsRequest } from "../mixins/reportsRequest";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import * as THREE from 'three'
+import ThreeGlobe from 'three-globe';
+import TrackballControls from 'three-trackballcontrols';
+
+import "swiper/css";
+
+export default {
+  name: "Home",
+
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+
+  mixins: [reportsRequest],
+
+  data() {
+    return {
+      swiper: null
+    }
+  },
+
+  mounted() {
+    this.initGlobe()
+  },
+
+  methods: {
+    onSwiper(swiper) {
+      this.swiper = swiper
+    },
+
+    slideNext() {
+      this.swiper.slideNext()
+    },
+
+    slidePrev() {
+      this.swiper.slidePrev()
+    },
+
+    initGlobe() {
+      const Globe = new ThreeGlobe()
+        .globeImageUrl('https://media.graphcms.com/lXi1VFYqT3CrEegRbbIm')
+
+      // Setup renderer
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.getElementById('globeViz').appendChild(renderer.domElement);
+
+      // Setup scene
+      const scene = new THREE.Scene();
+      scene.add(Globe);
+      scene.add(new THREE.AmbientLight(0xbbbbbb));
+      scene.add(new THREE.DirectionalLight(0xffffff, 0.1));
+      scene.background = new THREE.Color(0x1b1b1b)
+
+      // Setup camera
+      const camera = new THREE.PerspectiveCamera();
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      camera.position.z = 300;
+
+      // Add camera controls
+      const tbControls = new TrackballControls(camera, renderer.domElement);
+      tbControls.minDistance = 300;
+      tbControls.maxDistance = 300;
+      tbControls.rotateSpeed = 5;
+
+      var angle = 0;
+      var radius = 100; 
+
+      // Kick-off renderer
+      (function animate() { 
+        // Frame cycle
+        tbControls.update();
+        renderer.render(scene, camera);
+        camera.position.x = radius * Math.cos( angle );  
+        camera.position.z = radius * Math.sin( angle );
+        angle += 0.003;
+        requestAnimationFrame(animate);
+      })();
+    }
+  },
+};
+</script>

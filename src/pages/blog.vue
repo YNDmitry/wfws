@@ -20,34 +20,11 @@
 </template>
 
 <script>
-import { gql } from 'graphql-request'
-
+import { reportsRequest } from '../mixins/reportsRequest'
 export default {
   name: 'Blog',
 
-  data() {
-    return {
-      items: [],
-      errors: []
-    }
-  },
-
-  async created() {
-    const data = await this.$graphcms.request(
-      gql`
-        {
-          blogs {
-            id,
-            title,
-            createdAt
-          }
-        }
-      `
-    )
-
-    this.items = data.blogs
-    this.errors = data.errors
-  }
+  mixins: [reportsRequest]
 };
 </script>
 
