@@ -23,7 +23,28 @@
             секторов. Это помогает вам лучше понять куда инвестировать
           </p>
         </div>
-        <div class="info-main__globe" id="globeViz"></div>
+        <div class="info-main__globe">
+          <Renderer 
+            ref="renderer" 
+            antialias
+            :orbit-ctrl="{autoRotate: true}"
+            :shadow="false"
+            alpha
+          >
+            <Camera 
+              :aspect="aspect" 
+              :position="{ 
+                x: 0,
+                y: 0,
+                z: 300 
+              }" 
+              ref="camera"
+            />
+            <Scene 
+              ref="scene"
+            ></Scene>
+          </Renderer>
+        </div>
       </div>
     </div>
     <div class="main__page-block page-block">
@@ -107,9 +128,8 @@
 <script>
 import { reportsRequest } from "../mixins/reportsRequest";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js'
+import { Box, Camera, Renderer, Scene } from 'troisjs';
 import ThreeGlobe from 'three-globe';
-import TrackballControls from 'three-trackballcontrols';
 
 import "swiper/css";
 
@@ -118,7 +138,11 @@ export default {
 
   components: {
     Swiper,
-    SwiperSlide
+    SwiperSlide,
+    Camera,
+    Renderer,
+    Scene,
+    Box
   },
 
   mixins: [reportsRequest],
@@ -129,8 +153,25 @@ export default {
     }
   },
 
+  computed: {
+    aspect() {
+      return window.innerWidth / window.innerHeight
+    }
+  },
+
   mounted() {
-    this.initGlobe()
+    const renderer = this.$refs.renderer
+    const scene = this.$refs.scene
+    const camera = this.$refs.camera
+    const Globe = new ThreeGlobe()
+      // .globeImageUrl('https://media.graphcms.com/lXi1VFYqT3CrEegRbbIm')
+      .globeImageUrl('https://media.graphcms.com/20FqRXmFQZ1eEJNjGrOA')
+      .bumpImageUrl('https://media.graphcms.com/20FqRXmFQZ1eEJNjGrOA')
+      .showAtmosphere(false)
+      .rendererSize(scene)
+
+    scene.add(Globe);
+
   },
 
   methods: {
@@ -147,46 +188,37 @@ export default {
     },
 
     initGlobe() {
-      const Globe = new ThreeGlobe()
-        .globeImageUrl('https://media.graphcms.com/lXi1VFYqT3CrEegRbbIm')
-
-      // Setup renderer
-      const renderer = new THREE.WebGLRenderer();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.getElementById('globeViz').appendChild(renderer.domElement);
+      // const renderer = this.$refs.renderer
+      // const camera = this.$refs.camera
+      // const globe = this.$refs.globe
+      // const Globe = new ThreeGlobe()
+      //   .globeImageUrl('https://media.graphcms.com/lXi1VFYqT3CrEegRbbIm')
 
       // Setup scene
-      const scene = new THREE.Scene();
-      scene.add(Globe);
-      scene.add(new THREE.AmbientLight(0xbbbbbb));
-      scene.add(new THREE.DirectionalLight(0xffffff, 0.1));
-      scene.background = new THREE.Color(0x1b1b1b)
+      // globe.add(Globe);
 
       // Setup camera
-      const camera = new THREE.PerspectiveCamera();
-      camera.aspect = window.innerWidth/window.innerHeight;
-      camera.updateProjectionMatrix();
-      camera.position.z = 300;
+      // camera.aspect = window.innerWidth/window.innerHeight;
+      // camera.updateProjectionMatrix();
+      // camera.position.z = 300;
+      // var angle = 0;
+      // var radius = 100;
+      // globe.rotation.x = radius * Math.cos( angle );  
+      // globe.rotation.z = radius * Math.sin( angle );
+      // angle += 0.003;
 
-      // Add camera controls
-      const tbControls = new TrackballControls(camera, renderer.domElement);
-      tbControls.minDistance = 300;
-      tbControls.maxDistance = 300;
-      tbControls.rotateSpeed = 5;
+      // // Add camera controls
+      // const tbControls = new TrackballControls(camera, renderer.domElement);
+      // tbControls.minDistance = 300;
+      // tbControls.maxDistance = 300;
+      // tbControls.rotateSpeed = 5;
 
-      var angle = 0;
-      var radius = 100; 
-
-      // Kick-off renderer
-      (function animate() { 
-        // Frame cycle
-        tbControls.update();
-        renderer.render(scene, camera);
-        camera.position.x = radius * Math.cos( angle );  
-        camera.position.z = radius * Math.sin( angle );
-        angle += 0.003;
-        requestAnimationFrame(animate);
-      })();
+      // // Kick-off renderer
+      // (function animate() { 
+      //   tbControls.update();
+      //   renderer.render(scene, camera);
+      //   requestAnimationFrame(animate);
+      // })();
     }
   },
 };
