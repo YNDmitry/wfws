@@ -107,7 +107,7 @@
 <script>
 import { reportsRequest } from "../mixins/reportsRequest";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import * as THREE from 'three'
+import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js'
 import ThreeGlobe from 'three-globe';
 import TrackballControls from 'three-trackballcontrols';
 
