@@ -16,6 +16,11 @@
   &__menu {
     display: flex;
   }
+  &__logo {
+    img {
+      margin: 0;
+    }
+  }
 }
 
 .menu-footer {

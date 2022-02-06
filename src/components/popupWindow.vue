@@ -144,14 +144,6 @@ export default {
     h4 {
       margin: 10px 0;
     }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      width: auto;
-      display: block;
-      margin: 0px auto;
-    }
   }
 }
 </style>

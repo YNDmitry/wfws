@@ -5,6 +5,10 @@
     display: flex;
     gap: 45px;
     margin-bottom: 100px;
+    img {
+      max-width: none;
+      margin: 0;
+    }
   }
 
   &__subtitle {
@@ -33,13 +37,6 @@
     }
     h4 {
       margin: 10px 0;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      width: auto;
-      display: block;
-      margin: 10px auto;
     }
   }
 }

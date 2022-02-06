@@ -26,4 +26,11 @@
       color: #dcdcdc;
     }
   }
+  &__image {
+    img {
+      margin: 0;
+      max-width: none;
+      display: inline;
+    }
+  }
 }
