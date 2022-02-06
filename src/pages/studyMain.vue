@@ -25,9 +25,13 @@
             :key="tab.id"
             @click="selectTab(tab.id)"
             :class="tab.id === selectedTab ? 'active' : ''"
-            >{{ tab.title }}
-            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
-          /></div>
+          >
+            {{ tab.title }}
+            <img
+              src="../../src/assets/images/studyMain/arrowRight.svg"
+              alt=""
+            />
+          </div>
         </nav>
       </div>
       <div class="catalog-tabs__content" v-if="currentTab">
@@ -35,7 +39,7 @@
           <h2>{{ currentTab.title }}</h2>
         </div>
         <div class="catalog-tabs__body body-tabs">
-          <div class="body-tabs__contant contant-tabs">
+          <div class="body-tabs__contant">
             <div v-html="currentTab.body.html"></div>
           </div>
         </div>
@@ -45,52 +49,52 @@
 </template>
 
 <script>
-  import { gql } from 'graphql-request'
-  export default {
-    name: 'StudyMain',
+import { gql } from "graphql-request";
+export default {
+  name: "StudyMain",
 
-    data() {
-      return {
-        items: null,
-        error: null,
+  data() {
+    return {
+      items: null,
+      error: null,
 
-        selectedTab: null,
-        currentTab: null
-      }
-    },
+      selectedTab: null,
+      currentTab: null,
+    };
+  },
 
-    async created() {
-      try {
-        const data = await this.$graphcms.request(
-          gql`
-            {
-              studies {
-                id
-                title
-                body {
-                  html
-                }
+  async created() {
+    try {
+      const data = await this.$graphcms.request(
+        gql`
+          {
+            studies {
+              id
+              title
+              body {
+                html
               }
             }
-          `
-        )
-        this.items = data.studies
-        this.selectedTab = data.studies[0].id
-      } catch (error) {
-        this.error = error
-      }
-    },
-
-    updated() {
-      this.selectTab(this.selectedTab)
-    },
-
-    methods: {
-      selectTab(id) {
-        let temp = this.items
-        this.selectedTab = id
-        this.currentTab = temp.find(item => item.id === id)
-      }
+          }
+        `
+      );
+      this.items = data.studies;
+      this.selectedTab = data.studies[0].id;
+    } catch (error) {
+      this.error = error;
     }
-  };
+  },
+
+  updated() {
+    this.selectTab(this.selectedTab);
+  },
+
+  methods: {
+    selectTab(id) {
+      let temp = this.items;
+      this.selectedTab = id;
+      this.currentTab = temp.find((item) => item.id === id);
+    },
+  },
+};
 </script>

@@ -51,6 +51,18 @@
               }}</label>
             </div>
           </div>
+          <form action="#" class="filter-reports__search">
+            <input
+              type="text"
+              autocomplete="off"
+              name="form[]"
+              placeholder="Название компании"
+              class="filter-reports__input"
+            />
+            <button type="submit" class="filter-reports__btn">
+              <img src="../../src/assets/images/search.svg" alt="" />
+            </button>
+          </form>
         </div>
       </div>
       <div class="body-reports__catalog reports-catalog">

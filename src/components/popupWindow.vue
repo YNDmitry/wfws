@@ -37,7 +37,7 @@ export default {
 
 .window-modal {
   &__wrapper {
-    z-index: 150;
+    z-index: 1001;
     visibility: visible;
     overflow: auto;
     pointer-events: auto;
@@ -141,9 +141,16 @@ export default {
       margin-bottom: 20px;
     }
 
+    h4 {
+      margin: 10px 0;
+    }
+
     img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
       display: block;
-      margin: 0 auto;
+      margin: 0px auto;
     }
   }
 }
