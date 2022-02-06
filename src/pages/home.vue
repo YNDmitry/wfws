@@ -27,9 +27,14 @@
           <Renderer 
             ref="renderer" 
             antialias
-            :orbit-ctrl="{autoRotate: true}"
+            :orbit-ctrl="{
+              autoRotate: true,
+              autoRotateSpeed: 1
+            }"
             :shadow="false"
             alpha
+            width="900"
+            height="900"
           >
             <Camera 
               :aspect="aspect" 
@@ -42,7 +47,9 @@
             />
             <Scene 
               ref="scene"
-            ></Scene>
+            >
+              <AmbientLight></AmbientLight>
+            </Scene>
           </Renderer>
         </div>
       </div>
@@ -128,7 +135,7 @@
 <script>
 import { reportsRequest } from "../mixins/reportsRequest";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Box, Camera, Renderer, Scene } from 'troisjs';
+import { Box, Camera, Renderer, Scene, AmbientLight } from 'troisjs';
 import ThreeGlobe from 'three-globe';
 
 import "swiper/css";
@@ -142,14 +149,15 @@ export default {
     Camera,
     Renderer,
     Scene,
-    Box
+    Box,
+    AmbientLight
   },
 
   mixins: [reportsRequest],
 
   data() {
     return {
-      swiper: null
+      swiper: null,
     }
   },
 
@@ -160,17 +168,7 @@ export default {
   },
 
   mounted() {
-    const renderer = this.$refs.renderer
-    const scene = this.$refs.scene
-    const camera = this.$refs.camera
-    const Globe = new ThreeGlobe()
-      .globeImageUrl('https://media.graphcms.com/lXi1VFYqT3CrEegRbbIm')
-      // .bumpImageUrl('https://media.graphcms.com/aCBFW2MRTYSh90ml5o0t')
-      .showAtmosphere(false)
-      .rendererSize(scene)
-
-    scene.add(Globe);
-
+    this.initGlobe()
   },
 
   methods: {
@@ -185,39 +183,49 @@ export default {
     slidePrev() {
       this.swiper.slidePrev()
     },
-
+    
     initGlobe() {
-      // const renderer = this.$refs.renderer
-      // const camera = this.$refs.camera
-      // const globe = this.$refs.globe
-      // const Globe = new ThreeGlobe()
-      //   .globeImageUrl('https://media.graphcms.com/lXi1VFYqT3CrEegRbbIm')
+      const N = 20
 
-      // Setup scene
-      // globe.add(Globe);
+      const arcsData = [...Array(N).keys()].map(() => ({
+        startLat: (Math.random() - 0.5) * 180,
+        startLng: (Math.random() - 0.5) * 360,
+        endLat: (Math.random() - 0.5) * 180,
+        endLng: (Math.random() - 0.5) * 360,
+        color: ['orange', 'white']
+      }))
 
-      // Setup camera
-      // camera.aspect = window.innerWidth/window.innerHeight;
-      // camera.updateProjectionMatrix();
-      // camera.position.z = 300;
-      // var angle = 0;
-      // var radius = 100;
-      // globe.rotation.x = radius * Math.cos( angle );  
-      // globe.rotation.z = radius * Math.sin( angle );
-      // angle += 0.003;
+      const nData = 10
+      const gData = [...Array(nData).keys()].map(() => ({
+        lat: (Math.random() - 0.5) * 180,
+        lng: (Math.random() - 0.5) * 360,
+        size: 18,
+        maxR: Math.random() * 20 + 3,
+        propagationSpeed: (Math.random() - 0.5) * 20 + 1,
+        repeatPeriod: Math.random() * 2000 + 200
+      }));
 
-      // // Add camera controls
-      // const tbControls = new TrackballControls(camera, renderer.domElement);
-      // tbControls.minDistance = 300;
-      // tbControls.maxDistance = 300;
-      // tbControls.rotateSpeed = 5;
+      const colorInterpolator = t => `rgba(255,165,0,${1-t})`
 
-      // // Kick-off renderer
-      // (function animate() { 
-      //   tbControls.update();
-      //   renderer.render(scene, camera);
-      //   requestAnimationFrame(animate);
-      // })();
+      const scene = this.$refs.scene
+      const Globe = new ThreeGlobe({animateIn: false})
+        .globeImageUrl('../src/assets/images/world.jpg')
+        .showAtmosphere(true)
+        .atmosphereColor('#FFA500')
+        .rendererSize(window.innerWidth, window.innerHeight)
+        .arcsData(arcsData)
+        .arcColor('color')
+        .arcDashLength(0.4)
+        .arcDashGap(4)
+        .arcDashInitialGap(() => Math.random() * 5)
+        .arcDashAnimateTime(1000)
+        .ringsData(gData)
+        .ringColor(() => colorInterpolator)
+        .ringMaxRadius('maxR')
+        .ringPropagationSpeed('propagationSpeed')
+        .ringRepeatPeriod('repeatPeriod')
+       
+      scene.add(Globe)
     }
   },
 };

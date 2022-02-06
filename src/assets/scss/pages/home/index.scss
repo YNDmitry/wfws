@@ -41,7 +41,7 @@
     align-items: center;
     gap: 65px;
     margin-top: 200px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
   }
 
   &__info {
@@ -73,8 +73,6 @@
     
     & canvas {
       position: absolute;
-      right: -1000px;
-      height: 1000px;
     }
   }
 }
