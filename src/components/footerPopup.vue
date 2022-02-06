@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-    
+
     <div class="vue-modal-overlay" @click="$emit('close')"></div>
   </div>
 </template>
@@ -19,8 +19,8 @@
 export default {
   props: {
     open: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
 };
 </script>
@@ -58,7 +58,7 @@ export default {
 
 .vue-modal-inner {
   position: fixed;
-  
+
   width: 95%;
   max-width: 600px;
   z-index: 200;
@@ -102,8 +102,11 @@ export default {
   line-height: 22px;
   color: #000;
 
-  & p {
+  p {
     color: #000;
+  }
+  h4 {
+    margin: 10px 0;
   }
 }
 </style>

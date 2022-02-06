@@ -13,11 +13,13 @@
     padding-bottom: 70px;
   }
 
-  &__logo {
-  }
-
   &__menu {
     display: flex;
+  }
+  &__logo {
+    img {
+      margin: 0;
+    }
   }
 }
 
@@ -27,8 +29,11 @@
   &__list {
     padding: 0;
     margin: 25px 0 0 0;
-    li:not(:last-child) {
-      margin-bottom: 10px;
+    li {
+      list-style: none;
+      li:not(:last-child) {
+        margin-bottom: 10px;
+      }
     }
   }
 
