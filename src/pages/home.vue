@@ -209,7 +209,7 @@ export default {
 
       const scene = this.$refs.scene
       const Globe = new ThreeGlobe({animateIn: false})
-        .globeImageUrl('/src/assets/images/world.jpg')
+        .globeImageUrl('https://media.graphcms.com/OFnNTgSQMO4KostmCPAv')
         .showAtmosphere(true)
         .atmosphereColor('#FFA500')
         .rendererSize(window.innerWidth, window.innerHeight)
