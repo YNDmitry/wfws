@@ -60,15 +60,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @media (any-hover: hover) {
-      &:hover {
-        text-decoration: underline;
-      }
-    }
     text-decoration: none;
     color: white;
-    &:active,
-    &:focus {
+
+    &.active {
       background: $primary-color;
       box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.14);
       border-radius: 13px;

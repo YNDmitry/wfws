@@ -14,147 +14,29 @@
       </li>
     </ul>
   </div>
-  <div class="catalog">
+  <div class="catalog" v-if="items !== null">
     <div class="catalog__body">
       <div class="catalog__tabs tabs-catalog">
         <nav class="tabs__items items-tabs">
-          <a href="#" class="items-tabs__item"
-            >Lorem ipsum 1
+          <div
+            href="#"
+            class="items-tabs__item"
+            v-for="tab in items"
+            :key="tab.id"
+            @click="selectTab(tab.id)"
+            :class="tab.id === selectedTab ? 'active' : ''"
+            >{{ tab.title }}
             <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
-          /></a>
-          <a href="#" class="items-tabs__item"
-            >Lorem ipsum 2
-            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
-          /></a>
-          <a href="#" class="items-tabs__item"
-            >Lorem ipsum 3
-            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
-          /></a>
-          <a href="#" class="items-tabs__item"
-            >Lorem ipsum 4
-            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
-          /></a>
-          <a href="#" class="items-tabs__item"
-            >Lorem ipsum 5
-            <img src="../../src/assets/images/studyMain/arrowRight.svg" alt=""
-          /></a>
+          /></div>
         </nav>
       </div>
-      <div class="catalog-tabs__content">
+      <div class="catalog-tabs__content" v-if="currentTab">
         <div class="catalog-tabs__subtitle">
-          <h2>На что смотреть перед покупкой акций</h2>
+          <h2>{{ currentTab.title }}</h2>
         </div>
         <div class="catalog-tabs__body body-tabs">
-          <div class="body-tabs__mask">
-            <img src="../../src/assets/images/studyTamplate/mask.jpg" alt="" />
-          </div>
           <div class="body-tabs__contant contant-tabs">
-            <div class="contant-tabs__block">
-              <h3>Lorem ipsum</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas
-                quam non, nunc dui tellus dui, suspendisse sed sit. Consectetur
-                sem ac sit amet dictum aliquet in. Tincidunt ac ut faucibus
-                urna, vitae. Accumsan non massa habitasse venenatis blandit
-                faucibus nisl nibh risus. Sed vel in nec in lectus tellus
-                tellus. Eu eget platea adipiscing a suspendisse dictum ipsum
-                eget scelerisque. Diam id a suspendisse odio in commodo pretium
-                consectetur. Elit consequat tortor, diam proin ornare nascetur
-                tortor.
-              </p>
-              <ul>
-                <p>
-                  <img
-                    src="../../src/assets/images/blogTamplate/check.svg"
-                    alt=""
-                  />
-                  Lorem ipsum...
-                </p>
-                <p>
-                  <img
-                    src="../../src/assets/images/blogTamplate/check.svg"
-                    alt=""
-                  />
-                  Lorem ipsum...
-                </p>
-                <p>
-                  <img
-                    src="../../src/assets/images/blogTamplate/check.svg"
-                    alt=""
-                  />
-                  Lorem ipsum...
-                </p>
-              </ul>
-            </div>
-            <div class="contant-tabs__block">
-              <h3>Lorem ipsum</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas
-                quam non, nunc dui tellus dui, suspendisse sed sit. Consectetur
-                sem ac sit amet dictum aliquet in. Tincidunt ac ut faucibus
-                urna, vitae. Accumsan non massa habitasse venenatis blandit
-                faucibus nisl nibh risus. Sed vel in nec in lectus tellus
-                tellus.
-                <br /><br />Eu eget platea adipiscing a suspendisse dictum ipsum
-                eget scelerisque. Diam id a suspendisse odio in commodo pretium
-                consectetur. Elit consequat tortor, diam proin ornare nascetur
-                tortor. Eu eget platea adipiscing a suspendisse dictum ipsum
-                eget scelerisque. Diam id a suspendisse odio in commodo pretium
-                consectetur. Elit consequat tortor, diam proin ornare nascetur
-                tortor.
-              </p>
-            </div>
-            <div class="contant-tabs__block">
-              <h3>Lorem ipsum</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas
-                quam non, nunc dui tellus dui, suspendisse sed sit. Consectetur
-                sem ac sit amet dictum aliquet in. Tincidunt ac ut faucibus
-                urna, vitae. Accumsan non massa habitasse venenatis blandit
-                faucibus nisl nibh risus. Sed vel in nec in lectus tellus
-                tellus. Eu eget platea adipiscing a suspendisse dictum ipsum
-                eget scelerisque. Diam id a suspendisse odio in commodo pretium
-                consectetur. Elit consequat tortor, diam proin ornare nascetur
-                tortor.
-              </p>
-              <ul>
-                <p>
-                  <img
-                    src="../../src/assets/images/blogTamplate/check.svg"
-                    alt=""
-                  />
-                  Lorem ipsum...
-                </p>
-                <p>
-                  <img
-                    src="../../src/assets/images/blogTamplate/check.svg"
-                    alt=""
-                  />
-                  Lorem ipsum...
-                </p>
-                <p>
-                  <img
-                    src="../../src/assets/images/blogTamplate/check.svg"
-                    alt=""
-                  />
-                  Lorem ipsum...
-                </p>
-              </ul>
-            </div>
-            <div class="contant-tabs__block">
-              <h3>Lorem ipsum</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas
-                quam non, nunc dui tellus dui, suspendisse sed sit. Consectetur
-                sem ac sit amet dictum aliquet in. Tincidunt ac ut faucibus
-                urna, vitae. Accumsan non massa habitasse venenatis blandit
-                faucibus nisl nibh risus. Sed vel in nec in lectus tellus
-                tellus. Eu eget platea adipiscing a suspendisse dictum ipsum
-                eget scelerisque. Diam id a suspendisse odio in commodo pretium
-                consectetur. Elit consequat tortor, diam proin ornare nascetur
-                tortor.
-              </p>
-            </div>
+            <div v-html="currentTab.body.html"></div>
           </div>
         </div>
       </div>
@@ -163,5 +45,52 @@
 </template>
 
 <script>
-export default {};
+  import { gql } from 'graphql-request'
+  export default {
+    name: 'StudyMain',
+
+    data() {
+      return {
+        items: null,
+        error: null,
+
+        selectedTab: null,
+        currentTab: null
+      }
+    },
+
+    async created() {
+      try {
+        const data = await this.$graphcms.request(
+          gql`
+            {
+              studies {
+                id
+                title
+                body {
+                  html
+                }
+              }
+            }
+          `
+        )
+        this.items = data.studies
+        this.selectedTab = data.studies[0].id
+      } catch (error) {
+        this.error = error
+      }
+    },
+
+    updated() {
+      this.selectTab(this.selectedTab)
+    },
+
+    methods: {
+      selectTab(id) {
+        let temp = this.items
+        this.selectedTab = id
+        this.currentTab = temp.find(item => item.id === id)
+      }
+    }
+  };
 </script>
