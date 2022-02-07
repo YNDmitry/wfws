@@ -67,78 +67,46 @@
       </div>
       <div class="body-reports__catalog reports-catalog">
         <template v-if="filteredReports.length > 0">
-          <div
-            class="reports-catalog__block"
-            v-for="report in filteredReports"
-            :key="report"
-          >
-            <h4>{{ report.title }}</h4>
-            <div class="reports-catalog__categories">
-              <div
-                class="reports-catalog__category"
-                v-for="category in report.category"
-                :key="category"
-              >
-                {{ category.categoryName }}
+          <transition-group name="fade">
+            <div
+              class="reports-catalog__block"
+              v-for="report in filteredReports"
+              :key="report"
+            >
+              <h4>{{ report.title }}</h4>
+              <div class="reports-catalog__categories">
+                <div
+                  class="reports-catalog__category"
+                  v-for="category in report.category"
+                  :key="category"
+                >
+                  {{ category.categoryName }}
+                </div>
               </div>
+              <span>14.01.2022</span>
+              <p>
+                {{ report.description }}
+              </p>
+              <div class="reports-catalog__btn btn" @click="openModal(report.id)">
+                Посмотреть
+              </div>
+              <transition name="fade">
+                <window-modal
+                  :open="windowIsOpen === report.id ? true : false" 
+                  @close="windowIsOpen = false"
+                  :title="report.title"
+                  :body="report.body"  
+                >
+                </window-modal>
+              </transition>
             </div>
-            <span>14.01.2022</span>
-            <p>
-              {{ report.description }}
-            </p>
-            <div class="reports-catalog__btn btn" @click="windowIsOpen = true">
-              Посмотреть
-            </div>
-          </div>
+          </transition-group>
           <div class="reports-catalog__button button">показать больше</div>
         </template>
         <h2 v-else>Отчёты по такой категории не найдены.</h2>
       </div>
     </div>
   </div>
-
-  <transition name="fade">
-    <window-modal :open="windowIsOpen" @close="windowIsOpen = false">
-      <h2>Apple отчет за 4 квартал, дальейшие перспективы роста</h2>
-      <p>
-        Компания Apple опубликовала отчёт за четвёртый квартал 2021 финансового
-        года, завершившийся у неё 25 сентября. Выручка за отчётный период
-        составила 83,360 млрд долларов. По сравнению с аналогичным периодом
-        предыдущего финансового года этот показатель вырос на 20%.
-        <br />
-        <br />
-
-        Операционная прибыль составила 23,786 млрд долларов, чистая прибыль —
-        20,551 млрд долларов. Год назад эти показатели были равны 14,775 и
-        12,873 млрд долларов соответственно.
-        <br /><br />
-        Хотя Apple начинает больше зарабатывать с других категорий, iPhone пока
-        остается главным продуктом компании. Всего за минувший квартал
-        технологический гигант получил выручку 64,7 миллиарда долларов или 0,73
-        доллара на акцию. Чистая прибыль составила 12,67 миллиарда долларов. Для
-        сравнения — в прошлом году доходы Apple составили 64 миллиарда долларов,
-        чистая прибыль — 13,69 миллиарда долларов. Хотя Apple начинает больше
-        зарабатывать с других категорий, iPhone пока остается главным продуктом
-        компании. Всего за минувший квартал технологический гигант получил
-        выручку 64,7 миллиарда долларов или 0,73 доллара на акцию. Чистая
-        прибыль составила 12,67 миллиарда долларов. Для сравнения — в прошлом
-        году доходы Apple составили 64 миллиарда долларов, чистая прибыль —
-        13,69 миллиарда долларов. Хотя Apple начинает больше зарабатывать с
-        других категорий, iPhone пока остается главным продуктом компании. Всего
-        за минувший квартал технологический гигант получил выручку 64,7
-        миллиарда долларов или 0,73 доллара на акцию. Чистая прибыль составила
-        12,67 миллиарда долларов. Для сравнения — в прошлом году доходы Apple
-        составили 64 миллиарда долларов, чистая прибыль — 13,69 миллиарда
-        долларов. Хотя Apple начинает больше зарабатывать с других категорий,
-        iPhone пока остается главным продуктом компании. Всего за минувший
-        квартал технологический гигант получил выручку 64,7 миллиарда долларов
-        или 0,73 доллара на акцию. Чистая прибыль составила 12,67 миллиарда
-        долларов. Для сравнения — в прошлом году доходы Apple составили 64
-        миллиарда долларов, чистая прибыль — 13,69 миллиарда долларов.
-      </p>
-      <img src="../../src/assets/images/windowPopup/1.jpg" alt="" />
-    </window-modal>
-  </transition>
 </template>
 
 <script>
@@ -158,7 +126,7 @@ export default {
       categoryFilter: [],
       countryFilter: "",
 
-      windowIsOpen: false,
+      windowIsOpen: null,
     };
   },
 
@@ -220,7 +188,10 @@ export default {
               reports {
                 id
                 title
-                description
+                description,
+                body {
+                  html
+                },
                 category {
                   ... on CategoryFilter {
                     categoryName
@@ -254,6 +225,15 @@ export default {
     clearCategoryFilter() {
       return (this.categoryFilter = []);
     },
+
+    openModal(id) {
+      this.windowIsOpen = id
+      if (this.windowIsOpen === id) {
+        return true
+      } else {
+        return false
+      }
+    }
   },
 };
 </script>
