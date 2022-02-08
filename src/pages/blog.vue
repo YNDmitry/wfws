@@ -8,7 +8,7 @@
         <div class="item-product__title">
           {{ item.title }}
         </div>
-        <div class="item-product__date">{{ item.createdAt }}</div>
+        <div class="item-product__date">{{ convertDate(item.createdAt) }}</div>
         <router-link :to="{ name: 'BlogTemplate', params: { id: item.id } }" class="btn item-product__btn">
           ЧИТАТЬ
           <img src="../../src/assets/images/arrow-right.svg" alt="" />
@@ -20,11 +20,12 @@
 </template>
 
 <script>
-import { reportsRequest } from '../mixins/reportsRequest'
+import { blogsRequest } from '../mixins/blogsRequest'
+import { convertDate } from '../mixins/helpers'
 export default {
   name: 'Blog',
 
-  mixins: [reportsRequest]
+  mixins: [blogsRequest, convertDate]
 };
 </script>
 

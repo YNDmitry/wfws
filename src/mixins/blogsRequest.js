@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request'
 
-export const reportsRequest = {
+export const blogsRequest = {
 	data() {
     return {
       items: [],
@@ -12,7 +12,7 @@ export const reportsRequest = {
     const data = await this.$graphcms.request(
       gql`
         {
-          blogs {
+          blogs(orderBy: createdAt_DESC) {
             id,
             title,
             createdAt

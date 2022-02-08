@@ -76,7 +76,7 @@
           >
               <div>
                 <h4>{{ slide.title }}</h4>
-                <span>{{ slide.createdAt }}</span>
+                <span>{{ convertDate(slide.createdAt) }}</span>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et
                   elementum risus scelerisque
@@ -133,10 +133,11 @@
 </template>
 
 <script>
-import { reportsRequest } from "../mixins/reportsRequest";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Box, Camera, Renderer, Scene, AmbientLight } from 'troisjs';
 import ThreeGlobe from 'three-globe';
+import { blogsRequest } from "../mixins/blogsRequest";
+import { convertDate } from '../mixins/helpers'
 
 import "swiper/css";
 
@@ -153,7 +154,7 @@ export default {
     AmbientLight
   },
 
-  mixins: [reportsRequest],
+  mixins: [blogsRequest, convertDate],
 
   data() {
     return {

@@ -34,6 +34,7 @@ const routes = [
 		component: lastReports,
 		meta: {
 			layout: "mainLayout",
+			title: 'Отчёты'
 		},
 	},
 	{
