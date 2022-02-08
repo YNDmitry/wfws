@@ -3,7 +3,9 @@
     <div class="footer__container">
       <div class="footer__body">
         <div class="footer__logo">
-          <a href=""><img src="/src/assets/images/footer-logo.svg" alt="" /></a>
+          <a href="/"
+            ><img src="/src/assets/images/footer-logo.svg" alt=""
+          /></a>
         </div>
         <div class="footer__block">
           <div class="footer__menu menu-footer">
@@ -38,7 +40,7 @@
                 >Конфеденциальность</a
               >
               <a @click="rulesIsOpen = true" class="footer-info__link"
-                >Правила</a
+                >Отказ от ответственности</a
               >
             </div>
           </div>

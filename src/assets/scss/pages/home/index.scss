@@ -144,6 +144,9 @@
   &__button {
     display: inline-flex;
     gap: 10px;
+    img {
+      margin: 0;
+    }
   }
 }
 
