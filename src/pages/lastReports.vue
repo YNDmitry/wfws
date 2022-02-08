@@ -51,59 +51,67 @@
               }}</label>
             </div>
           </div>
-          <form action="#" class="filter-reports__search">
+          <div class="filter-reports__search">
             <input
               type="text"
               autocomplete="off"
               name="form[]"
               placeholder="Название компании"
               class="filter-reports__input"
+              v-model="categorySearchInp"
             />
-            <button type="submit" class="filter-reports__btn">
+            <button class="filter-reports__btn" @click="search">
               <img src="../../src/assets/images/search.svg" alt="" />
             </button>
-          </form>
+          </div>
         </div>
       </div>
       <div class="body-reports__catalog reports-catalog">
-        <template v-if="filteredReports.length > 0">
-          <transition-group name="fade">
+        <template 
+          v-for="reportIdx in reportsToShow"
+          :key="reportIdx"
+        >
+          <div 
+            v-if="reportIdx <= filteredReports.length"
+          >
             <div
               class="reports-catalog__block"
-              v-for="report in filteredReports"
-              :key="report"
             >
-              <h4>{{ report.title }}</h4>
+              <h4>{{ filteredReports[reportIdx - 1].title }}</h4>
               <div class="reports-catalog__categories">
                 <div
                   class="reports-catalog__category"
-                  v-for="category in report.category"
+                  v-for="category in filteredReports[reportIdx - 1].category"
                   :key="category"
                 >
                   {{ category.categoryName }}
                 </div>
               </div>
-              <span>14.01.2022</span>
+              <span>{{ convertDate(filteredReports[reportIdx - 1].createdAt) }}</span>
               <p>
-                {{ report.description }}
+                {{ filteredReports[reportIdx - 1].description }}
               </p>
-              <div class="reports-catalog__btn btn" @click="openModal(report.id)">
+              <div class="reports-catalog__btn btn" @click="openModal(filteredReports[reportIdx - 1].id)">
                 Посмотреть
               </div>
               <transition name="fade">
                 <window-modal
-                  :open="windowIsOpen === report.id ? true : false" 
+                  :open="windowIsOpen === filteredReports[reportIdx - 1].id ? true : false" 
                   @close="windowIsOpen = false"
-                  :title="report.title"
-                  :body="report.body"  
+                  :title="filteredReports[reportIdx - 1].title"
+                  :body="filteredReports[reportIdx - 1].body"  
                 >
                 </window-modal>
               </transition>
             </div>
-          </transition-group>
-          <div class="reports-catalog__button button">показать больше</div>
+          </div>
         </template>
-        <h2 v-else>Отчёты по такой категории не найдены.</h2>
+        <div 
+          class="reports-catalog__button button"
+          @click="reportsToShow += 3"
+          v-if="reportsToShow < filteredReports.length"
+        >показать больше</div>
+        <h2 v-if="filteredReports.length === 0">Отчёты по такой категории не найдены.</h2>
       </div>
     </div>
   </div>
@@ -112,19 +120,27 @@
 <script>
 import windowModal from "../components/popupWindow.vue";
 import { gql } from "graphql-request";
+import { convertDate } from '../mixins/helpers'
 export default {
   components: {
     windowModal,
   },
+
+  mixins: [convertDate],
 
   data() {
     return {
       reports: [],
       countries: [],
       categories: [],
+      reportsToShow: 3,
+      totalReports: null,
+      isShowMore: true,
 
       categoryFilter: [],
       countryFilter: "",
+      categorySearch: "",
+      categorySearchInp: "",
 
       windowIsOpen: null,
     };
@@ -143,6 +159,25 @@ export default {
         this.$route.query.country = "ru";
       }
     },
+
+    categorySearchInp(e) {
+      if (e.length === 0) {
+        this.filteredReports
+      }
+    },
+
+    countryFilter(val) {      
+      let searchParams = new URLSearchParams(window.location.search)
+
+      if (val === 'США') {
+        searchParams.set('country', 'usa')
+      } else {
+        searchParams.set('country', 'ru')
+      }
+      
+      let newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+      return history.pushState(null, '', newRelativePathQuery);
+    }
   },
 
   computed: {
@@ -150,6 +185,7 @@ export default {
       let tempReports = this.reports;
 
       if (this.countryFilter) {
+        this.reportsToShow = 3
         tempReports = tempReports.filter((item) => {
           return item.country.countryName == this.countryFilter;
         });
@@ -158,15 +194,23 @@ export default {
       if (this.categoryFilter.length > 0) {
         tempReports = tempReports.filter((item) => {
           for (let value of item.category) {
+            console.log(this.categoryFilter.includes(value.categoryName))
             if (this.categoryFilter.includes(value.categoryName)) {
               return true;
             }
           }
         });
       }
+      
+      if (this.categorySearch.length > 0) {
+        tempReports = tempReports.filter((item) => {
+          return item.title.toLowerCase().includes(this.categorySearch.toLowerCase())
+        })
+      }
 
       return tempReports;
     },
+
   },
 
   methods: {
@@ -185,10 +229,11 @@ export default {
         const data = await this.$graphcms.request(
           gql`
             {
-              reports {
+              reports(orderBy: createdAt_DESC) {
                 id
                 title
                 description,
+                createdAt,
                 body {
                   html
                 },
@@ -219,17 +264,35 @@ export default {
     },
 
     clearCountryFilter() {
-      return (this.countryFilter = "");
+      this.countryFilter = "";
+      return this.reportsToShow = 3
     },
 
     clearCategoryFilter() {
-      return (this.categoryFilter = []);
+      this.categoryFilter = [];
+      this.categorySearchInp = ''
+      return this.reportsToShow = 3
     },
 
     openModal(id) {
       this.windowIsOpen = id
       if (this.windowIsOpen === id) {
         return true
+      } else {
+        return false
+      }
+    },
+
+    search() {
+      if (this.categorySearchInp.length > 0) {
+        this.categorySearch = this.categorySearchInp
+        return this.filteredReports
+      }
+    },
+
+    showMore() {
+      if (this.filteredReports.length < this.reportsToShow) { 
+        return this.filteredReports.length === this.reportsToShow
       } else {
         return false
       }
