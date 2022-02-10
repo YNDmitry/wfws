@@ -3,17 +3,16 @@
     background: #232323;
     padding: 50px 0;
     border-top: 1px solid $border-color;
-    
+
     &-success {
       text-align: center;
-  
+
       & img {
         width: 100%;
         max-width: 150px;
       }
     }
   }
-
 }
 
 .form-sending {
@@ -32,9 +31,14 @@
     @include fM;
     color: #ffffff;
     margin-bottom: 30px;
-  }
-
-  &__window {
+    @media (max-width: 768px) {
+      font-size: 38px;
+      line-height: 49px;
+    }
+    @media (max-width: 480px) {
+      font-size: 28px;
+      line-height: 39px;
+    }
   }
 
   &__input {
@@ -45,6 +49,14 @@
     border-bottom: 1px solid #ffffff;
     transition: border-bottom 0.3s ease 0s;
     font-size: 25px;
+    @media (max-width: 768px) {
+      grid-column: span 2;
+      padding-top: 20px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 20px;
+    }
     &:focus {
       outline: none;
       border-bottom: 1px solid $primary-color;
@@ -77,7 +89,7 @@
 
   &__error {
     margin-top: 30px;
-    background-color: #FFA4A4;
+    background-color: #ffa4a4;
     width: 100%;
     text-align: center;
     text-transform: uppercase;

@@ -11,10 +11,23 @@
     justify-content: space-between;
     padding-top: 60px;
     padding-bottom: 70px;
+    gap: 30px;
+    @media (max-width: 992px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__menu {
     display: flex;
+    flex-wrap: wrap;
+    gap: 125px;
+    @media (max-width: 768px) {
+      gap: 50px;
+    }
+    @media (max-width: 500px) {
+      justify-content: space-evenly;
+    }
   }
   &__logo {
     img {
@@ -35,6 +48,9 @@
         margin-bottom: 10px;
       }
     }
+    @media (max-width: 480px) {
+      margin: 15px 0 0 0;
+    }
   }
 
   &__link {
@@ -42,12 +58,6 @@
       &:hover {
         text-decoration: underline;
       }
-    }
-  }
-
-  &__column {
-    &:not(:last-child) {
-      margin-right: 125px;
     }
   }
 
@@ -70,13 +80,25 @@
     display: flex;
     justify-content: space-between;
     padding-top: 30px;
+    gap: 5px;
+    flex-wrap: wrap;
+    @media (max-width: 480px) {
+      justify-content: center;
+      gap: 25px;
+    }
   }
+}
+
+.seti {
+  display: flex;
+  gap: 5px;
 }
 
 .footer-info {
   &__rules {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
   }
 
   &__link {
