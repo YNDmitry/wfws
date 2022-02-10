@@ -1,12 +1,12 @@
 .page-main {
   &__info {
-    padding-bottom: 140px;
-  }
-}
-.page-main {
-  &__info {
     margin-top: 40px;
     text-align: center;
+    padding-bottom: 140px;
+    @media (max-width: 480px) {
+      padding-bottom: 0;
+    }
+
     h1 {
       span {
         font-weight: 900;
@@ -17,6 +17,10 @@
       line-height: 49px;
       color: white;
       margin-bottom: 20px;
+      @media (max-width: 767px) {
+        font-size: 35px;
+        line-height: 45px;
+      }
     }
     p {
       font-weight: normal;
@@ -27,6 +31,10 @@
       margin: 0 auto;
       &:not(:last-child) {
         margin-bottom: 80px;
+      }
+      @media (max-width: 480px) {
+        font-size: 20px;
+        line-height: 29px;
       }
     }
   }
@@ -45,6 +53,11 @@
     gap: 65px;
     margin-top: 200px;
     margin-bottom: 100px;
+    @media (max-width: 768px) {
+      display: block;
+      margin-bottom: 350px;
+      margin-top: 100px;
+    }
   }
 
   &__info {
@@ -64,6 +77,18 @@
       &:not(:last-child) {
         margin-bottom: 50px;
       }
+      @media (max-width: 480px) {
+        font-size: 16px;
+        line-height: 23px;
+      }
+    }
+    @media (max-width: 768px) {
+      align-items: center;
+      width: 100%;
+      text-align: center;
+      h4 {
+        margin-bottom: 15px;
+      }
     }
   }
 
@@ -76,6 +101,20 @@
 
     & canvas {
       position: absolute;
+      @media (max-width: 768px) {
+        float: center;
+        width: 500px;
+        height: 500px;
+        right: 0;
+      }
+      @media (max-width: 480px) {
+        width: 350px;
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: block;
     }
   }
 }
@@ -88,6 +127,14 @@
     h1 {
       font-size: 36px;
       line-height: 44px;
+      @media (max-width: 768px) {
+        font-size: 30px;
+        line-height: 38px;
+      }
+      @media (max-width: 480px) {
+        font-size: 24px;
+        line-height: 32px;
+      }
     }
     margin-bottom: 50px;
   }
@@ -172,6 +219,14 @@
       font-size: 36px;
       line-height: 44px;
       margin-bottom: 80px;
+      @media (max-width: 480px) {
+        font-size: 30px;
+        line-height: 38px;
+      }
+      @media (max-width: 480px) {
+        font-size: 24px;
+        line-height: 32px;
+      }
     }
   }
 
@@ -190,6 +245,29 @@
     }
     &:nth-child(even) {
       flex-direction: row-reverse;
+    }
+
+    @media (max-width: 992px) {
+      gap: 25px;
+      img {
+        width: 60%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      img {
+        width: 95%;
+      }
+      &:nth-child(even) {
+        flex-direction: column;
+      }
+      flex-direction: column;
+    }
+
+    @media (max-width: 480px) {
+      &:not(:last-child) {
+        margin-bottom: 75px;
+      }
     }
   }
 }

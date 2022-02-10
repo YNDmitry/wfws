@@ -1,4 +1,4 @@
-@import './modal.scss';
+@import "./modal.scss";
 
 .reports-analysis {
   &__title {
@@ -18,11 +18,23 @@
     border: 1px solid $dark--color;
     box-sizing: border-box;
     border-radius: 15px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 0 30px;
+    }
+    @media (max-width: 480px) {
+      padding: 0 15px;
+    }
   }
 
   &__image {
     padding: 0 84px 50px 65px;
     margin-top: -100px;
+    @media (max-width: 768px) {
+      padding: 0;
+      margin: 0;
+      transform: rotate(-90deg);
+    }
     img {
       max-width: none;
       margin: 0;
@@ -31,16 +43,28 @@
 
   &__contant {
     padding: 45px 56px 50px 0;
+    @media (max-width: 480px) {
+      padding: 0 0 30px 0;
+    }
   }
 }
 .report-contant {
   h4 {
     margin-bottom: 24px;
+    @media (max-width: 480px) {
+      font-size: 20px;
+      line-height: 25px;
+    }
   }
   p {
     font-size: 20px;
     margin-bottom: 25px;
     line-height: 27px;
+    @media (max-width: 480px) {
+      font-size: 16px;
+      margin-bottom: 15px;
+      line-height: 23px;
+    }
   }
 }
 //========================= Last Reports.vue ===========================
@@ -52,6 +76,9 @@
   &__body {
     display: flex;
     align-items: flex-start;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 }
 
@@ -64,6 +91,11 @@
     min-height: 500px;
     width: 250px;
     margin-right: 85px;
+    @media (max-width: 768px) {
+      width: auto;
+      min-height: auto;
+      margin-right: 0;
+    }
   }
 
   &__catalog {
@@ -133,12 +165,22 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+    @media (max-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: space-between;
+    }
   }
 
   &__search {
     background-color: #fff;
-    display: flex;
+    display: inline-flex;
     border-radius: 5px;
+    @media (max-width: 768px) {
+      height: 30px;
+      margin: 0 auto;
+    }
   }
 
   &__input {
@@ -217,6 +259,15 @@
 
 .radio__input:checked + .radio__label:after {
   opacity: 1;
+}
+
+.category-filter,
+.country-filter {
+  @media (max-width: 480px) {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
 }
 
 .category-filter__checkbox,

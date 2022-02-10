@@ -36,4 +36,8 @@
       color: #000;
     }
   }
+  @media (max-width: 480px) {
+    font-size: 18px;
+    line-height: 23px;
+  }
 }
