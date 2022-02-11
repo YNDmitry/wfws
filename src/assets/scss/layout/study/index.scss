@@ -37,6 +37,12 @@
     display: grid;
     grid-template-columns: 365px 1fr;
     gap: 65px;
+    @media (max-width: 992px) {
+      gap: 40px;
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__tabs {
@@ -44,6 +50,9 @@
     box-shadow: 0px 0px 44px rgba(0, 0, 0, 0.14);
     border-radius: 30px;
     padding: 70px 35px;
+    @media (max-width: 480px) {
+      padding: 50px 20px;
+    }
   }
 }
 
@@ -64,6 +73,8 @@
     align-items: center;
     text-decoration: none;
     color: white;
+    gap: 15px;
+    cursor: pointer;
     img {
       margin: 0;
       max-width: none;
@@ -80,6 +91,9 @@
 .catalog-tabs {
   &__content {
     padding: 70px 70px 0 70px;
+    @media (max-width: 992px) {
+      padding: 40px 0 0 0;
+    }
   }
 
   &__subtitle {
@@ -95,6 +109,9 @@
     margin-top: 65px;
     h4 {
       margin: 10px 0;
+    }
+    table {
+      display: none;
     }
   }
 }

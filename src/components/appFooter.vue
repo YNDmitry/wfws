@@ -24,10 +24,25 @@
               </ul>
             </div>
             <div class="menu-footer__column">
-              <div class="menu-footer__title">Аналитика</div>
-              <ul class="menu-footer__list">
-                <li><a href="" class="menu-footer__link">Разбор экрана</a></li>
-                <li><a href="" class="menu-footer__link">Разбор экрана</a></li>
+              <div class="menu-footer__title">Соцсети</div>
+              <ul class="menu-footer__list seti">
+                <li>
+                  <a
+                    href="https://vk.com/thewfws"
+                    target="_blank"
+                    class="menu-footer__link"
+                  >
+                    <img src="../../src/assets/images/vk.svg" alt="" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/thewfws/"
+                    target="_blank"
+                    class="menu-footer__link"
+                    ><img src="../../src/assets/images/inst.svg" alt=""
+                  /></a>
+                </li>
               </ul>
             </div>
           </div>

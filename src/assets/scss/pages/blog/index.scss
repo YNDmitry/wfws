@@ -1,6 +1,18 @@
 .blog {
   &__title {
     margin-bottom: 100px;
+    h1 {
+      @media (max-width: 480px) {
+        font-size: 30px;
+        line-height: 42px;
+      }
+    }
+    @media (max-width: 768px) {
+      margin-bottom: 60px;
+    }
+    @media (max-width: 480px) {
+      margin-bottom: 40px;
+    }
   }
 
   &__products {
@@ -11,6 +23,9 @@
     grid-template-rows: 1fr 1fr;
     gap: 20px 40px;
     margin-bottom: 50px;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__line {
@@ -24,6 +39,9 @@
       position: absolute;
       top: 0;
       right: 50%;
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 }
@@ -32,6 +50,9 @@
   &__item {
     padding: 20px 30px 40px 20px;
     border-bottom: 1px solid $border-color;
+    @media (max-width: 480px) {
+      padding: 20px 0px 40px 10px;
+    }
   }
 }
 .item-product {

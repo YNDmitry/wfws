@@ -8,11 +8,17 @@
     flex-direction: column;
     align-items: center;
     gap: 125px;
+    @media (max-width: 992px) {
+      gap: 50px;
+    }
   }
 
   &__btn {
     padding: 22px 190px;
     font-weight: 700;
+    @media (max-width: 768px) {
+      padding: 18px 45px;
+    }
   }
 }
 .info-study {
@@ -20,10 +26,17 @@
     display: flex;
     gap: 75px;
     align-items: center;
+    @media (max-width: 992px) {
+      flex-direction: column;
+    }
     p {
       font-size: 20px;
       line-height: 27px;
       color: #dcdcdc;
+      @media (max-width: 768px) {
+        font-size: 18px;
+        line-height: 25px;
+      }
     }
   }
   &__image {
@@ -31,6 +44,9 @@
       margin: 0;
       max-width: none;
       display: inline;
+      @media (max-width: 768px) {
+        max-width: 95%;
+      }
     }
   }
 }

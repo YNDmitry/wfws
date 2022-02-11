@@ -34,16 +34,17 @@ export default {
 }
 
 .modal__wrapper {
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
   top: 0;
-  bottom: 0;
   left: 0;
+  z-index: 1001;
+  bottom: 0;
   right: 0;
+  padding: 30px 25px;
+  margin: 0 10px;
 }
 
 .vue-modal-overlay {
@@ -57,28 +58,24 @@ export default {
 }
 
 .vue-modal-inner {
-  position: fixed;
-
-  width: 95%;
-  max-width: 600px;
-  z-index: 200;
   flex-direction: column;
+  align-items: center;
+  min-height: 100%;
   flex: 1 1 auto;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .vue-modal-content {
-  visibility: visible;
-  transform: scale(1);
   background-color: #fff;
   padding: 30px;
+  z-index: 151;
   width: 100%;
   max-width: 900px;
   border-radius: 20px;
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .popup__close {
@@ -98,12 +95,15 @@ export default {
 
 .popup-footer__info {
   font-weight: normal;
-  font-size: 16px;
-  line-height: 22px;
   color: #000;
 
   p {
     color: #000;
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
   h4 {
     margin: 10px 0;
