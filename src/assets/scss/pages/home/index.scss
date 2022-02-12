@@ -22,23 +22,27 @@
         line-height: 45px;
       }
     }
-    p {
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 33px;
-      color: #ffffff;
-      max-width: 950px;
-      margin: 0 auto;
-      &:not(:last-child) {
-        margin-bottom: 80px;
-      }
-      @media (max-width: 480px) {
-        font-size: 20px;
-        line-height: 29px;
-      }
-    }
   }
 }
+
+.typed-text {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 33px;
+  color: #ffffff;
+  max-width: 950px;
+  margin: 0 auto;
+  height: 100px;
+  &:not(:last-child) {
+    margin-bottom: 80px;
+  }
+  @media (max-width: 480px) {
+    font-size: 20px;
+    line-height: 29px;
+    height: 170px;
+  }
+}
+
 .info-main {
   &__logo {
     display: inline-block;

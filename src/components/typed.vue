@@ -58,13 +58,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.typed-text {
-  height: 100px;
-
-  @media (max-width: 480px) {
-    height: 170px;
-  }
-}
-</style>

@@ -5,7 +5,7 @@
         <img src="../../src/assets/images/home/logo.svg" alt="" />
       </a>
       <h1><span> ИНВЕСТИЦИИ</span> В КОМПАНИИ ПО ВСЕМУ МИРУ</h1>
-      <p><TypeEffect /></p>
+      <TypeEffect></TypeEffect>
       <div class="info-main__navigation">
         <div class="info-main__info">
           <h4>Отчеты компаний</h4>
