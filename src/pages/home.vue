@@ -5,11 +5,7 @@
         <img src="../../src/assets/images/home/logo.svg" alt="" />
       </a>
       <h1><span> ИНВЕСТИЦИИ</span> В КОМПАНИИ ПО ВСЕМУ МИРУ</h1>
-      <p>
-        Проект ВсW$ создан, чтобы помогать вам находить прибыльные
-        инвестиционные идеи на биржах. Присоединяйтесь к нашему сообществу и
-        черпайте свежие идеи для своих инвестиций!
-      </p>
+      <p><TypeEffect /></p>
       <div class="info-main__navigation">
         <div class="info-main__info">
           <h4>Отчеты компаний</h4>
@@ -134,6 +130,8 @@ import ThreeGlobe from "three-globe";
 import { blogsRequest } from "../mixins/blogsRequest";
 import { convertDate } from "../mixins/helpers";
 
+import TypeEffect from "../components/typed.vue";
+
 import "swiper/css";
 
 export default {
@@ -147,6 +145,7 @@ export default {
     Scene,
     Box,
     AmbientLight,
+    TypeEffect,
   },
 
   mixins: [blogsRequest, convertDate],
