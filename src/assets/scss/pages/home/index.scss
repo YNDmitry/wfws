@@ -166,6 +166,11 @@
     border-radius: 12px;
     opacity: 0.5;
     transform: scale(0.8) !important;
+    @media (max-width: 480px) {
+      & div:nth-child(1) {
+        padding: 20px 35px;
+      }
+    }
   }
 
   &__arrows {
