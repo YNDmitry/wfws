@@ -61,6 +61,29 @@
         :loop="true"
         :initialSlide="3"
         :autoPlay="true"
+        :breakpoints="{
+          1025: {
+            spaceBetween: 20,
+            slidesPerView: 2,
+          },
+
+          992: {
+            spaceBetween: 20,
+            slidesPerView: 2,
+          },
+          768: {
+            spaceBetween: 20,
+            slidesPerView: 2,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+        }"
         @swiper="onSwiper"
         class="slider-page__slider"
       >
