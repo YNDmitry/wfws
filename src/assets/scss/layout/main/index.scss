@@ -6,9 +6,6 @@
 .main {
   min-height: 100vh;
   display: flex;
-  @media (max-width: 768px) {
-    flex-direction: column-reverse;
-  }
   &__header {
     background-color: #202020;
     width: 30%;
@@ -23,6 +20,11 @@
       width: 100%;
       padding: 0;
       border-radius: 20px 20px 0px 0px;
+      background-color: #202020;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
   }
 
