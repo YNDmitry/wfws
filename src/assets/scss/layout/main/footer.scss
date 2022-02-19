@@ -82,6 +82,9 @@
     padding-top: 30px;
     gap: 5px;
     flex-wrap: wrap;
+    @media (max-width: 768px) {
+      padding: 30px;
+    }
     @media (max-width: 480px) {
       justify-content: center;
       gap: 25px;
