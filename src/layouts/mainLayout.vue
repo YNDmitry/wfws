@@ -3,7 +3,6 @@
     <aside class="main__header">
       <main-header></main-header>
     </aside>
-
     <div class="main__content">
       <router-view></router-view>
     </div>
