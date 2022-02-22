@@ -3,6 +3,9 @@
     margin-top: 40px;
     text-align: center;
     padding-bottom: 140px;
+    @media (max-width: 768px) {
+      margin-top: 10px;
+    }
     @media (max-width: 480px) {
       padding-bottom: 0;
     }
