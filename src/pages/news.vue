@@ -3,7 +3,7 @@
     <div class="news-market__title">
       <h1>Новости фондового рынка</h1>
     </div>
-    <div class="blog__line">
+    <div class="news-market__line">
       <div class="news-market__body">
         <article class="news-market__item item-news">
           <div class="item-news__cart">
