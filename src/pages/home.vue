@@ -96,8 +96,7 @@
             <h4>{{ slide.title }}</h4>
             <span>{{ convertDate(slide.createdAt) }}</span>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et
-              elementum risus scelerisque
+              {{ slide.description }}
             </p>
             <router-link
               :to="{ name: 'BlogTemplate', params: { id: slide.id } }"

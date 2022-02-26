@@ -5,9 +5,11 @@ import reports from "../pages/reports.vue";
 import study from "../pages/study.vue";
 import studyMain from "../pages/studyMain.vue";
 import blog from "../pages/blog.vue";
-import blogTemplate from "../templates/blogTemplate.vue";
 import lastReports from "../pages/lastReports.vue";
 import news from "../pages/news.vue";
+
+import blogTemplate from "../templates/blogTemplate.vue";
+import newsTemplate from "../templates/newsTemplate.vue";
 
 const routes = [
 	{
@@ -94,6 +96,14 @@ const routes = [
 		name: "news",
 		path: "/news",
 		component: news,
+		meta: {
+			layout: "mainLayout",
+		},
+	},
+	{
+		name: "newsTemplate",
+		path: "/news/:id",
+		component: newsTemplate,
 		meta: {
 			layout: "mainLayout",
 		},

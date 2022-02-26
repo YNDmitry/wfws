@@ -60,6 +60,8 @@
 
   &__contant {
     margin-left: 20px;
+    color: white;
+    
     span {
       padding-top: 5px;
       font-weight: 600;
@@ -73,7 +75,7 @@
   }
   &__image {
     img {
-      max-width: none;
+      max-width: 150px;
       margin: 0;
       display: inline;
       @media (max-width: 480px) {

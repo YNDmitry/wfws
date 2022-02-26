@@ -15,6 +15,7 @@ export const blogsRequest = {
           blogs(orderBy: createdAt_DESC) {
             id,
             title,
+						description,
             createdAt
           }
         }

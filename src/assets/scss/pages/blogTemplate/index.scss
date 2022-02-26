@@ -4,6 +4,7 @@
     color: $primary-color;
     display: flex;
     gap: 45px;
+    text-decoration: none;
     margin-bottom: 100px;
     @media (max-width: 480px) {
       gap: 20px;
