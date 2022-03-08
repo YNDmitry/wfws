@@ -7,6 +7,7 @@ import studyMain from "../pages/studyMain.vue";
 import blog from "../pages/blog.vue";
 import lastReports from "../pages/lastReports.vue";
 import news from "../pages/news.vue";
+import about from "../pages/about.vue";
 
 import blogTemplate from "../templates/blogTemplate.vue";
 import newsTemplate from "../templates/newsTemplate.vue";
@@ -36,7 +37,7 @@ const routes = [
 		component: lastReports,
 		meta: {
 			layout: "mainLayout",
-			title: 'Отчёты'
+			title: "Отчёты",
 		},
 	},
 	{
@@ -104,6 +105,14 @@ const routes = [
 		name: "newsTemplate",
 		path: "/news/:id",
 		component: newsTemplate,
+		meta: {
+			layout: "mainLayout",
+		},
+	},
+	{
+		name: "About",
+		path: "/about",
+		component: about,
 		meta: {
 			layout: "mainLayout",
 		},

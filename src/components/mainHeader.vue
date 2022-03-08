@@ -7,7 +7,7 @@
     <router-link to="/news" class="header__link">Новости рынков</router-link>
     <router-link to="/study" class="header__link">Обучение</router-link>
     <router-link to="/blog" class="header__link">Блог и идеи</router-link>
-    <router-link to="/about-us" class="header__link">О нас</router-link>
+    <router-link to="/about" class="header__link">О нас</router-link>
   </header>
   <header-mobile></header-mobile>
 </template>
