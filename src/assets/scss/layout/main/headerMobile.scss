@@ -24,15 +24,27 @@
   }
 }
 
-.page {
-  background-color: orange;
-  border-radius: 35%;
+.current {
+  @media (max-width: 768px) {
+    background-color: $primary-color;
+    border-radius: 35%;
+  }
 }
 
 .burger-active {
   &__list {
     padding: 16px 25px 25px 25px;
     display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    a {
+      &.current {
+        @media (max-width: 768px) {
+          color: $primary-color;
+        }
+      }
+    }
   }
 
   &__link {
@@ -41,6 +53,10 @@
     line-height: 21px;
     &:not(:last-child) {
       padding-bottom: 9px;
+    }
+    color: white;
+    @media (max-width: 768px) {
+      background: none;
     }
   }
 }

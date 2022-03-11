@@ -13,17 +13,36 @@
               <div class="menu-footer__title">Аналитика</div>
               <ul class="menu-footer__list">
                 <li>
-                  <a href="" class="menu-footer__link">Разбор компаний</a>
+                  <router-link class="menu-footer__link" to="/reports"
+                    >Разбор компаний</router-link
+                  >
                 </li>
-                <li><a href="" class="menu-footer__link">Новости рынков</a></li>
-                <li><a href="" class="menu-footer__link">Блог и идеи</a></li>
+                <li>
+                  <router-link class="menu-footer__link" to="/news"
+                    >Новости рынков</router-link
+                  >
+                </li>
+                <li>
+                  <router-link class="menu-footer__link" to="/blog"
+                    >Блог и идеи</router-link
+                  >
+                </li>
               </ul>
             </div>
             <div class="menu-footer__column">
               <div class="menu-footer__title">О проекте</div>
               <ul class="menu-footer__list">
-                <li><a href="" class="menu-footer__link">Главная</a></li>
-                <li><a href="" class="menu-footer__link">О нас</a></li>
+                <li>
+                  <router-link class="menu-footer__link" to="/"
+                    >Главная</router-link
+                  >
+                </li>
+
+                <li>
+                  <router-link class="menu-footer__link" to="/about"
+                    >О нас</router-link
+                  >
+                </li>
               </ul>
             </div>
             <div class="menu-footer__column">
