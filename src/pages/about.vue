@@ -16,7 +16,7 @@
         </p>
       </div>
       <div class="my-story__photo">
-        <img src="../../src/assets/images/myphoto.jpg" alt="" />
+        <img src="../../src/assets/images/myphoto.png" alt="" />
       </div>
     </div>
     <div class="chart__info info-chart">

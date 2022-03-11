@@ -12,15 +12,18 @@
             <div class="menu-footer__column">
               <div class="menu-footer__title">Аналитика</div>
               <ul class="menu-footer__list">
-                <li><a href="" class="menu-footer__link">Разбор экрана</a></li>
-                <li><a href="" class="menu-footer__link">Разбор экрана</a></li>
+                <li>
+                  <a href="" class="menu-footer__link">Разбор компаний</a>
+                </li>
+                <li><a href="" class="menu-footer__link">Новости рынков</a></li>
+                <li><a href="" class="menu-footer__link">Блог и идеи</a></li>
               </ul>
             </div>
             <div class="menu-footer__column">
-              <div class="menu-footer__title">Аналитика</div>
+              <div class="menu-footer__title">О проекте</div>
               <ul class="menu-footer__list">
-                <li><a href="" class="menu-footer__link">Разбор экрана</a></li>
-                <li><a href="" class="menu-footer__link">Разбор экрана</a></li>
+                <li><a href="" class="menu-footer__link">Главная</a></li>
+                <li><a href="" class="menu-footer__link">О нас</a></li>
               </ul>
             </div>
             <div class="menu-footer__column">
