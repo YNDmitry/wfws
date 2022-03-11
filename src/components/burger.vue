@@ -1,8 +1,8 @@
 <template>
   <div class="window__burger" v-if="open">
-    <p class="burger-active__list">
+    <div class="burger-active__list">
       <slot></slot>
-    </p>
+    </div>
   </div>
 </template>
 

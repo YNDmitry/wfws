@@ -13,6 +13,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 100px;
+    @media (max-width: 1150px) {
+      gap: 15px;
+    }
     @media (max-width: 992px) {
       flex-direction: column;
       gap: 20px;
@@ -23,8 +26,11 @@
 .my-story {
   border: 1px solid #ffffff;
   border-radius: 15px;
-  padding: 60px;
+  padding: 30px 60px;
   margin-bottom: 80px;
+  @media (max-width: 1150px) {
+    padding: 30px 45px;
+  }
   @media (max-width: 992px) {
     padding: 30px;
     margin-bottom: 45px;
@@ -45,10 +51,7 @@
   &__photo {
     img {
       margin: 0;
-      @media (max-width: 992px) {
-        margin: 0 auto;
-        max-width: 45%;
-      }
+      max-width: none;
     }
   }
 }

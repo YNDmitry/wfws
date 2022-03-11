@@ -18,6 +18,11 @@
     &:not(:last-child) {
       margin-bottom: 0px;
     }
+    a {
+      &.current {
+        background-color: inherit;
+      }
+    }
   }
 
   &__link {
