@@ -1,5 +1,6 @@
 <template>
-  <header class="header">
+  <header-mobile v-if="isDesktop"></header-mobile>
+  <header class="header" v-else>
     <router-link to="/" class="header__link">Главная</router-link>
     <router-link to="/reports" class="header__link"
       >Разбор компаний</router-link
@@ -9,7 +10,6 @@
     <router-link to="/blog" class="header__link">Блог и идеи</router-link>
     <router-link to="/about" class="header__link">О нас</router-link>
   </header>
-  <header-mobile></header-mobile>
 </template>
 
 <script>
@@ -18,5 +18,28 @@ export default {
   components: {
     HeaderMobile,
   },
+
+  data() {
+    return {
+      isDesktop: true,
+    }
+  },
+
+  mounted() {
+    this.width()
+    window.addEventListener('resize', () => {
+      this.width()
+    })
+  },
+
+  methods: {
+    width() {
+      if (window.innerWidth <= 768) {
+        return this.isDesktop = true
+      } else {
+        return this.isDesktop = false
+      }
+    }
+  }
 };
 </script>

@@ -49,6 +49,11 @@
       }
       a {
         &.current {
+          color: $primary-color;
+          background-color: transparent;
+          text-decoration: none;
+        }
+        &.current {
           @media (max-width: 768px) {
             background-color: inherit;
             font-weight: 500;

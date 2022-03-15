@@ -4,7 +4,7 @@
   </div>
   <div class="blog__line">
     <div class="blog__products">
-      <article class="product__item item-product" v-for="item in items" :key="item">
+      <article class="product__item item-product" v-for="item in filteredItems" :key="item">
         <div class="item-product__title">
           {{ item.title }}
         </div>
@@ -16,7 +16,11 @@
       </article>
     </div>
   </div>
-  <button class="blog__button button">Показать больше</button>
+  <button 
+    class="blog__button button" 
+    @click="showMore"
+    v-if="filteredItems.length !== items.length"
+  >Показать больше</button>
 </template>
 
 <script>
@@ -25,7 +29,33 @@ import { convertDate } from '../mixins/helpers'
 export default {
   name: 'Blog',
 
-  mixins: [blogsRequest, convertDate]
+  mixins: [blogsRequest, convertDate],
+
+  data() {
+    return {
+      blogsToShow: 4
+    }
+  },
+
+  computed: {
+    filteredItems() {
+      let tempItems = this.items;
+  
+      tempItems = tempItems.slice(0, this.blogsToShow)
+      return tempItems
+    },
+  },
+
+  methods: {
+    showMore() {
+      if (this.filteredItems.length < this.items.length) { 
+        return this.blogsToShow += this.blogsToShow
+      } else {
+        return false
+      }
+    }
+  }
+
 };
 </script>
 

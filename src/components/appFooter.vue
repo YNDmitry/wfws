@@ -70,7 +70,7 @@
           </div>
           <div class="information-block__footer footer-info">
             <div class="footer-info__link">
-              @{{ new Date().getFullYear() }} All rights resivered
+              @{{ new Date().getFullYear() }} Все права защищены
             </div>
             <div class="footer-info__rules">
               <a @click="privacyIsOpen = true" class="footer-info__link"

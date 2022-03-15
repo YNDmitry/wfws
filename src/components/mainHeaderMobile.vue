@@ -1,10 +1,15 @@
 <template>
   <header class="header__mobile mobile-header">
-    <transition name="fade">
+    <transition name="slideUp">
       <window-burger :open="isOpen" @close="isOpen = false">
-        <router-link to="/about" class="burger-active__link">О нас</router-link>
-        <router-link to="/news" class="burger-active__link"
-          >Новости рынков</router-link
+        <router-link 
+          to="/about" 
+          class="burger-active__link" 
+        >О нас</router-link>
+        <router-link 
+          to="/news" 
+          class="burger-active__link"
+        >Новости рынков</router-link
         >
       </window-burger>
     </transition>
@@ -47,6 +52,15 @@ export default {
       isOpen: false,
     };
   },
+
+  watch: {
+    $route() {
+      if (this.isOpen === true) {
+        return this.isOpen = false
+      }
+    }
+  },
+
   methods: {
     toggle() {
       if (this.isOpen === false) {
@@ -60,13 +74,13 @@ export default {
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+.slideUp-enter-active {
+  transition: all .2s ease;
 }
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+.slideUp-leave-active {
+  transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slideUp-enter, .slideUp-leave-to {
+  transform: translateY(100%);
 }
 </style>

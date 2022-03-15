@@ -145,35 +145,3 @@
     }
   }
 }
-
-.invest-quotes {
-  &__body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: start;
-    @media (max-width: 992px) {
-      gap: 25px;
-    }
-    @media (max-width: 635px) {
-      grid-template-columns: 1fr;
-      gap: 15px;
-    }
-  }
-
-  &__item {
-    padding: 10px 25px 40px 10px;
-    @media (max-width: 635px) {
-      padding: 10px 25px 20px 10px;
-    }
-    p {
-      font-size: 16px;
-      line-height: 22px;
-    }
-    span {
-      float: right;
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.2);
-    }
-  }
-}
