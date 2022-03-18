@@ -114,9 +114,29 @@
     margin-top: 65px;
     h4 {
       margin: 10px 0;
+      color: orange;
     }
     table {
       display: none;
+    }
+    h3 {
+      color: #ff8243;
+    }
+    li {
+      list-style-type: circle;
+    }
+    li::marker {
+      color: #e4d96f;
+      padding-left: 15px;
+    }
+    strong {
+      color: #ff8800;
+    }
+    span {
+      color: #cc5500;
+    }
+    p {
+      margin-bottom: 15px;
     }
   }
 }

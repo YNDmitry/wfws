@@ -40,20 +40,42 @@
   margin-top: 65px;
   &__block {
     ul {
-      padding: 0;
-      margin: 15px 0 0 0;
+      padding: 0 20px;
+      margin-bottom: 35px;
+      @media (max-width: 768px) {
+        margin-bottom: 20px;
+      }
+      li {
+        list-style-type: circle;
+      }
+      li::marker {
+        color: #e4d96f;
+      }
     }
     h4 {
       margin: 10px 0;
+      color: orange;
     }
     p {
       font-size: 20px;
       line-height: 25px;
+      @media (max-width: 768px) {
+        margin-bottom: 20px;
+      }
       @media (max-width: 480px) {
         font-size: 16px;
         line-height: 21px;
       }
-      margin-bottom: 15px;
+      margin-bottom: 35px;
+    }
+    strong {
+      color: #ff8800;
+    }
+    span {
+      color: #cc5500;
+    }
+    h3 {
+      color: #ff8243;
     }
   }
 }
